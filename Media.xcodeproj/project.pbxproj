@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */; };
 		BEC8B2D12C16CCF00009F325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D02C16CCF00009F325 /* AppDelegate.swift */; };
 		BEC8B2D32C16CCF00009F325 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D22C16CCF00009F325 /* SceneDelegate.swift */; };
-		BEC8B2D52C16CCF00009F325 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D42C16CCF00009F325 /* ViewController.swift */; };
+		BEC8B2D52C16CCF00009F325 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D42C16CCF00009F325 /* TrendingViewController.swift */; };
 		BEC8B2DA2C16CCF20009F325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC8B2D92C16CCF20009F325 /* Assets.xcassets */; };
 		BEC8B2DD2C16CCF20009F325 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BEC8B2DC2C16CCF20009F325 /* Base */; };
 		BEC8B2EA2C16CECF0009F325 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BEC8B2E92C16CECF0009F325 /* Alamofire */; };
@@ -22,13 +23,18 @@
 		BEE629342C16DE40009E1884 /* MediaTrendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */; };
 		BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629352C16DFD6009E1884 /* EndpointScheme.swift */; };
 		BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629372C16DFE1009E1884 /* EndpointError.swift */; };
+		BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */; };
+		BEE629402C16F1AA009E1884 /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6293F2C16F1AA009E1884 /* TrendingTableViewCell.swift */; };
+		BEE629422C16F1FB009E1884 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629412C16F1FB009E1884 /* Builder.swift */; };
+		BEE629452C16F800009E1884 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629442C16F800009E1884 /* Buildable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCardView.swift; sourceTree = "<group>"; };
 		BEC8B2CD2C16CCF00009F325 /* Media.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Media.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC8B2D02C16CCF00009F325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC8B2D22C16CCF00009F325 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BEC8B2D42C16CCF00009F325 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BEC8B2D42C16CCF00009F325 /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		BEC8B2D92C16CCF20009F325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC8B2DC2C16CCF20009F325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEC8B2DE2C16CCF20009F325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +45,10 @@
 		BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTrendEndpoint.swift; sourceTree = "<group>"; };
 		BEE629352C16DFD6009E1884 /* EndpointScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointScheme.swift; sourceTree = "<group>"; };
 		BEE629372C16DFE1009E1884 /* EndpointError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointError.swift; sourceTree = "<group>"; };
+		BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitPreview.swift; sourceTree = "<group>"; };
+		BEE6293F2C16F1AA009E1884 /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
+		BEE629412C16F1FB009E1884 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		BEE629442C16F800009E1884 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +124,7 @@
 		BEC8B2E72C16CD0E0009F325 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BEC8B2D42C16CCF00009F325 /* ViewController.swift */,
+				BEE6293E2C16F195009E1884 /* Trending */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,6 +134,8 @@
 			children = (
 				BEE6292E2C16DD58009E1884 /* Endpoint */,
 				BEE6292D2C16D17C009E1884 /* Extension */,
+				BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */,
+				BEE629432C16F7F6009E1884 /* Builder */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -161,6 +173,25 @@
 				BEE629372C16DFE1009E1884 /* EndpointError.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		BEE6293E2C16F195009E1884 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				BEC8B2D42C16CCF00009F325 /* TrendingViewController.swift */,
+				BEE6293F2C16F1AA009E1884 /* TrendingTableViewCell.swift */,
+				BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */,
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		BEE629432C16F7F6009E1884 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				BEE629412C16F1FB009E1884 /* Builder.swift */,
+				BEE629442C16F800009E1884 /* Buildable.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,15 +275,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEC8B2D52C16CCF00009F325 /* ViewController.swift in Sources */,
+				BEC8B2D52C16CCF00009F325 /* TrendingViewController.swift in Sources */,
 				BEE629342C16DE40009E1884 /* MediaTrendEndpoint.swift in Sources */,
 				BEC8B2D12C16CCF00009F325 /* AppDelegate.swift in Sources */,
+				BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */,
 				BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */,
 				BEE629322C16DD7F009E1884 /* HTTPMethod.swift in Sources */,
+				BEE629402C16F1AA009E1884 /* TrendingTableViewCell.swift in Sources */,
+				BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */,
 				BEC8B2F62C16CF5D0009F325 /* APIKey.swift in Sources */,
 				BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */,
 				BEE629302C16DD61009E1884 /* EndpointRepresentable.swift in Sources */,
 				BEC8B2D32C16CCF00009F325 /* SceneDelegate.swift in Sources */,
+				BEE629422C16F1FB009E1884 /* Builder.swift in Sources */,
+				BEE629452C16F800009E1884 /* Buildable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
