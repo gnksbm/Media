@@ -95,8 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				BEC8B2E72C16CD0E0009F325 /* View */,
-				BEC8B2E62C16CD050009F325 /* App */,
 				BEC8B2F12C16CEFF0009F325 /* Utility */,
+				BEC8B2E62C16CD050009F325 /* App */,
 				BEC8B2F42C16CF350009F325 /* Ignored */,
 			);
 			path = Sources;

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-// https://api.themoviedb.org/3/trending/all/{time_window}
 
+// https://api.themoviedb.org/3/trending/all/{time_window}
 struct MediaTrendEndpoint: HTTPSEndpointRepresentable {
     var trendType: TrendType
     var timeWindow: TimeWindow
