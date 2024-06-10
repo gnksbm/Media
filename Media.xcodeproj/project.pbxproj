@@ -16,7 +16,12 @@
 		BEC8B2ED2C16CEDE0009F325 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BEC8B2EC2C16CEDE0009F325 /* SnapKit */; };
 		BEC8B2F02C16CEED0009F325 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BEC8B2EF2C16CEED0009F325 /* Kingfisher */; };
 		BEC8B2F32C16CF180009F325 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEC8B2F22C16CF180009F325 /* .gitignore */; };
-		BEC8B2F62C16CF5D0009F325 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2F52C16CF5D0009F325 /* API.swift */; };
+		BEC8B2F62C16CF5D0009F325 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2F52C16CF5D0009F325 /* APIKey.swift */; };
+		BEE629302C16DD61009E1884 /* EndpointRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6292F2C16DD61009E1884 /* EndpointRepresentable.swift */; };
+		BEE629322C16DD7F009E1884 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629312C16DD7F009E1884 /* HTTPMethod.swift */; };
+		BEE629342C16DE40009E1884 /* MediaTrendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */; };
+		BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629352C16DFD6009E1884 /* EndpointScheme.swift */; };
+		BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629372C16DFE1009E1884 /* EndpointError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +33,12 @@
 		BEC8B2DC2C16CCF20009F325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEC8B2DE2C16CCF20009F325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC8B2F22C16CF180009F325 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		BEC8B2F52C16CF5D0009F325 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BEC8B2F52C16CF5D0009F325 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		BEE6292F2C16DD61009E1884 /* EndpointRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointRepresentable.swift; sourceTree = "<group>"; };
+		BEE629312C16DD7F009E1884 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTrendEndpoint.swift; sourceTree = "<group>"; };
+		BEE629352C16DFD6009E1884 /* EndpointScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointScheme.swift; sourceTree = "<group>"; };
+		BEE629372C16DFE1009E1884 /* EndpointError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +122,7 @@
 		BEC8B2F12C16CEFF0009F325 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BEE6292E2C16DD58009E1884 /* Endpoint */,
 				BEE6292D2C16D17C009E1884 /* Extension */,
 			);
 			path = Utility;
@@ -120,7 +131,7 @@
 		BEC8B2F42C16CF350009F325 /* Ignored */ = {
 			isa = PBXGroup;
 			children = (
-				BEC8B2F52C16CF5D0009F325 /* API.swift */,
+				BEC8B2F52C16CF5D0009F325 /* APIKey.swift */,
 			);
 			path = Ignored;
 			sourceTree = "<group>";
@@ -130,6 +141,26 @@
 			children = (
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		BEE6292E2C16DD58009E1884 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */,
+				BEE6293B2C16E9F5009E1884 /* Protocol */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		BEE6293B2C16E9F5009E1884 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				BEE6292F2C16DD61009E1884 /* EndpointRepresentable.swift */,
+				BEE629352C16DFD6009E1884 /* EndpointScheme.swift */,
+				BEE629312C16DD7F009E1884 /* HTTPMethod.swift */,
+				BEE629372C16DFE1009E1884 /* EndpointError.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,8 +245,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEC8B2D52C16CCF00009F325 /* ViewController.swift in Sources */,
+				BEE629342C16DE40009E1884 /* MediaTrendEndpoint.swift in Sources */,
 				BEC8B2D12C16CCF00009F325 /* AppDelegate.swift in Sources */,
-				BEC8B2F62C16CF5D0009F325 /* API.swift in Sources */,
+				BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */,
+				BEE629322C16DD7F009E1884 /* HTTPMethod.swift in Sources */,
+				BEC8B2F62C16CF5D0009F325 /* APIKey.swift in Sources */,
+				BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */,
+				BEE629302C16DD61009E1884 /* EndpointRepresentable.swift in Sources */,
 				BEC8B2D32C16CCF00009F325 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
