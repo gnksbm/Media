@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */; };
+		BE77C1452C170257008EADA1 /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1442C170257008EADA1 /* Trending.swift */; };
+		BE77C1472C1703C1008EADA1 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */; };
+		BE77C1492C17076C008EADA1 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1482C17076C008EADA1 /* DateFormat.swift */; };
+		BE77C14B2C171150008EADA1 /* PaddingLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C14A2C171150008EADA1 /* PaddingLabelView.swift */; };
+		BE77C14D2C172270008EADA1 /* TMDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C14C2C172270008EADA1 /* TMDBEndpoint.swift */; };
+		BE77C14F2C17234D008EADA1 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C14E2C17234D008EADA1 /* Genre.swift */; };
+		BE77C1512C172485008EADA1 /* GenreEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1502C172485008EADA1 /* GenreEndpoint.swift */; };
 		BEC8B2D12C16CCF00009F325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D02C16CCF00009F325 /* AppDelegate.swift */; };
 		BEC8B2D32C16CCF00009F325 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D22C16CCF00009F325 /* SceneDelegate.swift */; };
 		BEC8B2D52C16CCF00009F325 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D42C16CCF00009F325 /* TrendingViewController.swift */; };
@@ -31,6 +38,13 @@
 
 /* Begin PBXFileReference section */
 		BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCardView.swift; sourceTree = "<group>"; };
+		BE77C1442C170257008EADA1 /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
+		BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
+		BE77C1482C17076C008EADA1 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		BE77C14A2C171150008EADA1 /* PaddingLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabelView.swift; sourceTree = "<group>"; };
+		BE77C14C2C172270008EADA1 /* TMDBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBEndpoint.swift; sourceTree = "<group>"; };
+		BE77C14E2C17234D008EADA1 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		BE77C1502C172485008EADA1 /* GenreEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreEndpoint.swift; sourceTree = "<group>"; };
 		BEC8B2CD2C16CCF00009F325 /* Media.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Media.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC8B2D02C16CCF00009F325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC8B2D22C16CCF00009F325 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE77C1432C170245008EADA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE77C1442C170257008EADA1 /* Trending.swift */,
+				BE77C14E2C17234D008EADA1 /* Genre.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BEC8B2C42C16CCF00009F325 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				BEC8B2E72C16CD0E0009F325 /* View */,
+				BE77C1432C170245008EADA1 /* Model */,
 				BEC8B2F12C16CEFF0009F325 /* Utility */,
 				BEC8B2E62C16CD050009F325 /* App */,
 				BEC8B2F42C16CF350009F325 /* Ignored */,
@@ -125,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE6293E2C16F195009E1884 /* Trending */,
+				BE77C14A2C171150008EADA1 /* PaddingLabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,9 +157,10 @@
 		BEC8B2F12C16CEFF0009F325 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */,
+				BE77C1482C17076C008EADA1 /* DateFormat.swift */,
 				BEE6292E2C16DD58009E1884 /* Endpoint */,
 				BEE6292D2C16D17C009E1884 /* Extension */,
-				BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */,
 				BEE629432C16F7F6009E1884 /* Builder */,
 			);
 			path = Utility;
@@ -151,6 +177,7 @@
 		BEE6292D2C16D17C009E1884 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -158,7 +185,9 @@
 		BEE6292E2C16DD58009E1884 /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
+				BE77C14C2C172270008EADA1 /* TMDBEndpoint.swift */,
 				BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */,
+				BE77C1502C172485008EADA1 /* GenreEndpoint.swift */,
 				BEE6293B2C16E9F5009E1884 /* Protocol */,
 			);
 			path = Endpoint;
@@ -280,15 +309,22 @@
 				BEC8B2D12C16CCF00009F325 /* AppDelegate.swift in Sources */,
 				BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */,
 				BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */,
+				BE77C1492C17076C008EADA1 /* DateFormat.swift in Sources */,
+				BE77C14B2C171150008EADA1 /* PaddingLabelView.swift in Sources */,
 				BEE629322C16DD7F009E1884 /* HTTPMethod.swift in Sources */,
+				BE77C1472C1703C1008EADA1 /* ReuseIdentifiable.swift in Sources */,
 				BEE629402C16F1AA009E1884 /* TrendingTableViewCell.swift in Sources */,
 				BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */,
 				BEC8B2F62C16CF5D0009F325 /* APIKey.swift in Sources */,
 				BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */,
 				BEE629302C16DD61009E1884 /* EndpointRepresentable.swift in Sources */,
 				BEC8B2D32C16CCF00009F325 /* SceneDelegate.swift in Sources */,
+				BE77C1452C170257008EADA1 /* Trending.swift in Sources */,
+				BE77C1512C172485008EADA1 /* GenreEndpoint.swift in Sources */,
 				BEE629422C16F1FB009E1884 /* Builder.swift in Sources */,
 				BEE629452C16F800009E1884 /* Buildable.swift in Sources */,
+				BE77C14D2C172270008EADA1 /* TMDBEndpoint.swift in Sources */,
+				BE77C14F2C17234D008EADA1 /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

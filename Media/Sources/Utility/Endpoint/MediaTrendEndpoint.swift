@@ -8,18 +8,19 @@
 import Foundation
 
 // https://api.themoviedb.org/3/trending/all/{time_window}
-struct MediaTrendEndpoint: HTTPSEndpointRepresentable {
-    var trendType: TrendType
+
+struct MediaTrendEndpoint: TMDBEndpoint {
+    var trendType: MediaType
     var timeWindow: TimeWindow
     var httpMethod: HTTPMethod { .get }
-    var host: String { "api.themoviedb.org" }
+    
     var path: String {
         "/3/trending/\(trendType.rawValue)/\(timeWindow.rawValue)"
     }
     var queries: [String: String]? { ["api_key": APIKey.mediaTrend] }
     
     init(
-        trendType: TrendType,
+        trendType: MediaType,
         timeWindow: TimeWindow = .day
     ) {
         self.trendType = trendType
@@ -28,7 +29,7 @@ struct MediaTrendEndpoint: HTTPSEndpointRepresentable {
 }
 
 extension MediaTrendEndpoint { 
-    enum TrendType: String, CaseIterable {
+    enum MediaType: String, CaseIterable {
         case all, movie, tv, person
     }
     

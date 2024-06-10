@@ -7,13 +7,22 @@
 
 import UIKit
 
+import Alamofire
 import SnapKit
 
 final class TrendingViewController: UIViewController {
+    private var dataList = [Trending.Item]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    private var genreDic = [Int: String]()
+    
     private lazy var tableView = UITableView().build { builder in
         builder.separatorStyle(.none)
             .delegate(self)
             .dataSource(self)
+            .action { $0.register(TrendingTableViewCell.self) }
     }
     
     override func viewDidLoad() {
@@ -21,6 +30,7 @@ final class TrendingViewController: UIViewController {
         configureUI()
         configureNavigation()
         configureLayout()
+        callGenreRequest()
     }
     
     private func configureUI() {
@@ -45,6 +55,33 @@ final class TrendingViewController: UIViewController {
             make.edges.equalTo(safeArea)
         }
     }
+    
+    private func callGenreRequest() {
+        AF.request(GenreEndpoint())
+            .responseDecodable(of: GenreResponse.self) { [weak self] response in
+                guard let self else { return }
+                switch response.result {
+                case .success(let genreResponse):
+                    genreDic = genreResponse.toDic
+                    callTrendingRequest()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+    }
+    
+    private func callTrendingRequest() {
+        AF.request(MediaTrendEndpoint(trendType: .all))
+            .responseDecodable(of: Trending.self) { [weak self] response in
+                guard let self else { return }
+                switch response.result {
+                case .success(let trending):
+                    dataList = trending.results
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+    }
 }
 
 extension TrendingViewController: UITableViewDelegate { }
@@ -54,14 +91,21 @@ extension TrendingViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        0
+        dataList.count
     }
     
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        .init()
+        let cell = tableView.dequeueReusableCell(
+            cellType: TrendingTableViewCell.self,
+            for: indexPath
+        )
+        let data = dataList[indexPath.row]
+        let genre = genreDic[data.genreID ?? 0]
+        cell.configureCell(data: data, genre: genre)
+        return cell
     }
 }
 

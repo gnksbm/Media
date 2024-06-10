@@ -28,7 +28,7 @@ struct Builder<Base: AnyObject> {
         base
     }
     
-    func make(_ block: (Base) -> Void) -> Builder<Base> {
+    func action(_ block: (Base) -> Void) -> Builder<Base> {
         block(base)
         return Builder(base)
     }
