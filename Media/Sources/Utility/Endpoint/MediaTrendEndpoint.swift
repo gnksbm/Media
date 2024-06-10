@@ -12,11 +12,13 @@ import Foundation
 struct MediaTrendEndpoint: TMDBEndpoint {
     var trendType: MediaType
     var timeWindow: TimeWindow
+    
     var httpMethod: HTTPMethod { .get }
     
     var path: String {
         "/3/trending/\(trendType.rawValue)/\(timeWindow.rawValue)"
     }
+    
     var queries: [String: String]? { ["api_key": APIKey.mediaTrend] }
     
     init(

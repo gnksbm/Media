@@ -8,10 +8,11 @@
 import UIKit
 
 import Alamofire
+import Kingfisher
 import SnapKit
 
 final class TrendingViewController: UIViewController {
-    private var dataList = [Trending.Item]() {
+    private var dataList = [TrendingResponse.Trending]() {
         didSet {
             tableView.reloadData()
         }
@@ -72,7 +73,7 @@ final class TrendingViewController: UIViewController {
     
     private func callTrendingRequest() {
         AF.request(MediaTrendEndpoint(trendType: .all))
-            .responseDecodable(of: Trending.self) { [weak self] response in
+            .responseDecodable(of: TrendingResponse.self) { [weak self] response in
                 guard let self else { return }
                 switch response.result {
                 case .success(let trending):
@@ -84,7 +85,20 @@ final class TrendingViewController: UIViewController {
     }
 }
 
-extension TrendingViewController: UITableViewDelegate { }
+extension TrendingViewController: UITableViewDelegate { 
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        let data = dataList[indexPath.row]
+        let creditVC = CreditViewController()
+        creditVC.callCreditRequest(data: data)
+        navigationController?.pushViewController(
+            creditVC,
+            animated: true
+        )
+    }
+}
 
 extension TrendingViewController: UITableViewDataSource {
     func tableView(

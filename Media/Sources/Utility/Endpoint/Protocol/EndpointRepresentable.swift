@@ -18,6 +18,9 @@ protocol EndpointRepresentable: URLConvertible, URLRequestConvertible {
     var queries: [String: String]? { get }
     var header: [String : String]? { get }
     var body: [String: any Encodable]? { get }
+    
+    func toURLRequest() -> URLRequest?
+    func toURL() -> URL?
 }
 
 extension EndpointRepresentable {
@@ -26,8 +29,8 @@ extension EndpointRepresentable {
     var header: [String : String]? { nil }
     var body: [String: any Encodable]? { nil }
     
-    private var toURLRequest: URLRequest? {
-        guard let url = toURL else { return nil }
+    func toURLRequest() -> URLRequest? {
+        guard let url = toURL() else { return nil }
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = header
         request.httpMethod = httpMethod.rawValue
@@ -38,7 +41,7 @@ extension EndpointRepresentable {
         return request
     }
     
-    private var toURL: URL? {
+    func toURL() -> URL? {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
@@ -54,12 +57,13 @@ extension EndpointRepresentable {
 // MARK: Alamofire
 extension EndpointRepresentable {
     func asURL() throws -> URL {
-        guard let toURL else { throw EndpointError.invalidURLRequest }
-        return toURL
+        guard let url = toURL() else { throw EndpointError.invalidURLRequest }
+        return url
     }
     
     func asURLRequest() throws -> URLRequest {
-        guard let toURLRequest else { throw EndpointError.invalidURLRequest }
-        return toURLRequest
+        guard let urlRequest = toURLRequest() 
+        else { throw EndpointError.invalidURLRequest }
+        return urlRequest
     }
 }

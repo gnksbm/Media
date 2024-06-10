@@ -8,13 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */; };
-		BE77C1452C170257008EADA1 /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1442C170257008EADA1 /* Trending.swift */; };
+		BE77C1452C170257008EADA1 /* TrendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1442C170257008EADA1 /* TrendingResponse.swift */; };
 		BE77C1472C1703C1008EADA1 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */; };
 		BE77C1492C17076C008EADA1 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1482C17076C008EADA1 /* DateFormat.swift */; };
 		BE77C14B2C171150008EADA1 /* PaddingLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C14A2C171150008EADA1 /* PaddingLabelView.swift */; };
 		BE77C14D2C172270008EADA1 /* TMDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C14C2C172270008EADA1 /* TMDBEndpoint.swift */; };
-		BE77C14F2C17234D008EADA1 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C14E2C17234D008EADA1 /* Genre.swift */; };
+		BE77C14F2C17234D008EADA1 /* GenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C14E2C17234D008EADA1 /* GenreResponse.swift */; };
 		BE77C1512C172485008EADA1 /* GenreEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1502C172485008EADA1 /* GenreEndpoint.swift */; };
+		BE77C1542C17255B008EADA1 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1532C17255B008EADA1 /* CreditViewController.swift */; };
+		BE77C1562C1725CF008EADA1 /* CreditEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1552C1725CF008EADA1 /* CreditEndpoint.swift */; };
+		BE77C1582C172792008EADA1 /* CreditResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1572C172792008EADA1 /* CreditResponse.swift */; };
+		BE77C15A2C172C53008EADA1 /* CreditTVCastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1592C172C53008EADA1 /* CreditTVCastCell.swift */; };
+		BE77C15C2C172C5F008EADA1 /* CreditTVOverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C15B2C172C5F008EADA1 /* CreditTVOverViewCell.swift */; };
+		BE77C1612C172F2F008EADA1 /* Credit.json in Resources */ = {isa = PBXBuildFile; fileRef = BE77C1602C172F2F008EADA1 /* Credit.json */; };
+		BE77C1632C17303D008EADA1 /* Trending.json in Resources */ = {isa = PBXBuildFile; fileRef = BE77C1622C17303D008EADA1 /* Trending.json */; };
+		BE77C1672C17373C008EADA1 /* ImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1662C17373C008EADA1 /* ImageEndpoint.swift */; };
+		BE77C1692C174BE3008EADA1 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1682C174BE3008EADA1 /* UIViewController+.swift */; };
 		BEC8B2D12C16CCF00009F325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D02C16CCF00009F325 /* AppDelegate.swift */; };
 		BEC8B2D32C16CCF00009F325 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D22C16CCF00009F325 /* SceneDelegate.swift */; };
 		BEC8B2D52C16CCF00009F325 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2D42C16CCF00009F325 /* TrendingViewController.swift */; };
@@ -38,13 +47,22 @@
 
 /* Begin PBXFileReference section */
 		BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCardView.swift; sourceTree = "<group>"; };
-		BE77C1442C170257008EADA1 /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
+		BE77C1442C170257008EADA1 /* TrendingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResponse.swift; sourceTree = "<group>"; };
 		BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		BE77C1482C17076C008EADA1 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		BE77C14A2C171150008EADA1 /* PaddingLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabelView.swift; sourceTree = "<group>"; };
 		BE77C14C2C172270008EADA1 /* TMDBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBEndpoint.swift; sourceTree = "<group>"; };
-		BE77C14E2C17234D008EADA1 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		BE77C14E2C17234D008EADA1 /* GenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponse.swift; sourceTree = "<group>"; };
 		BE77C1502C172485008EADA1 /* GenreEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreEndpoint.swift; sourceTree = "<group>"; };
+		BE77C1532C17255B008EADA1 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
+		BE77C1552C1725CF008EADA1 /* CreditEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditEndpoint.swift; sourceTree = "<group>"; };
+		BE77C1572C172792008EADA1 /* CreditResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditResponse.swift; sourceTree = "<group>"; };
+		BE77C1592C172C53008EADA1 /* CreditTVCastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTVCastCell.swift; sourceTree = "<group>"; };
+		BE77C15B2C172C5F008EADA1 /* CreditTVOverViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTVOverViewCell.swift; sourceTree = "<group>"; };
+		BE77C1602C172F2F008EADA1 /* Credit.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Credit.json; sourceTree = "<group>"; };
+		BE77C1622C17303D008EADA1 /* Trending.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trending.json; sourceTree = "<group>"; };
+		BE77C1662C17373C008EADA1 /* ImageEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndpoint.swift; sourceTree = "<group>"; };
+		BE77C1682C174BE3008EADA1 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		BEC8B2CD2C16CCF00009F325 /* Media.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Media.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC8B2D02C16CCF00009F325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEC8B2D22C16CCF00009F325 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,10 +100,31 @@
 		BE77C1432C170245008EADA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BE77C1442C170257008EADA1 /* Trending.swift */,
-				BE77C14E2C17234D008EADA1 /* Genre.swift */,
+				BE77C1442C170257008EADA1 /* TrendingResponse.swift */,
+				BE77C14E2C17234D008EADA1 /* GenreResponse.swift */,
+				BE77C1572C172792008EADA1 /* CreditResponse.swift */,
+				BE77C15D2C172F1D008EADA1 /* Mock */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BE77C1522C17254E008EADA1 /* Credit */ = {
+			isa = PBXGroup;
+			children = (
+				BE77C1532C17255B008EADA1 /* CreditViewController.swift */,
+				BE77C15B2C172C5F008EADA1 /* CreditTVOverViewCell.swift */,
+				BE77C1592C172C53008EADA1 /* CreditTVCastCell.swift */,
+			);
+			path = Credit;
+			sourceTree = "<group>";
+		};
+		BE77C15D2C172F1D008EADA1 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				BE77C1602C172F2F008EADA1 /* Credit.json */,
+				BE77C1622C17303D008EADA1 /* Trending.json */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		BEC8B2C42C16CCF00009F325 = {
@@ -148,8 +187,9 @@
 		BEC8B2E72C16CD0E0009F325 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BEE6293E2C16F195009E1884 /* Trending */,
 				BE77C14A2C171150008EADA1 /* PaddingLabelView.swift */,
+				BEE6293E2C16F195009E1884 /* Trending */,
+				BE77C1522C17254E008EADA1 /* Credit */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */,
+				BE77C1682C174BE3008EADA1 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -187,7 +228,9 @@
 			children = (
 				BE77C14C2C172270008EADA1 /* TMDBEndpoint.swift */,
 				BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */,
+				BE77C1662C17373C008EADA1 /* ImageEndpoint.swift */,
 				BE77C1502C172485008EADA1 /* GenreEndpoint.swift */,
+				BE77C1552C1725CF008EADA1 /* CreditEndpoint.swift */,
 				BEE6293B2C16E9F5009E1884 /* Protocol */,
 			);
 			path = Endpoint;
@@ -291,7 +334,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE77C1632C17303D008EADA1 /* Trending.json in Resources */,
 				BEC8B2DA2C16CCF20009F325 /* Assets.xcassets in Resources */,
+				BE77C1612C172F2F008EADA1 /* Credit.json in Resources */,
 				BEC8B2F32C16CF180009F325 /* .gitignore in Resources */,
 				BEC8B2DD2C16CCF20009F325 /* Base in Resources */,
 			);
@@ -311,20 +356,27 @@
 				BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */,
 				BE77C1492C17076C008EADA1 /* DateFormat.swift in Sources */,
 				BE77C14B2C171150008EADA1 /* PaddingLabelView.swift in Sources */,
+				BE77C1562C1725CF008EADA1 /* CreditEndpoint.swift in Sources */,
 				BEE629322C16DD7F009E1884 /* HTTPMethod.swift in Sources */,
+				BE77C15A2C172C53008EADA1 /* CreditTVCastCell.swift in Sources */,
 				BE77C1472C1703C1008EADA1 /* ReuseIdentifiable.swift in Sources */,
 				BEE629402C16F1AA009E1884 /* TrendingTableViewCell.swift in Sources */,
 				BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */,
 				BEC8B2F62C16CF5D0009F325 /* APIKey.swift in Sources */,
+				BE77C1692C174BE3008EADA1 /* UIViewController+.swift in Sources */,
 				BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */,
+				BE77C15C2C172C5F008EADA1 /* CreditTVOverViewCell.swift in Sources */,
 				BEE629302C16DD61009E1884 /* EndpointRepresentable.swift in Sources */,
 				BEC8B2D32C16CCF00009F325 /* SceneDelegate.swift in Sources */,
-				BE77C1452C170257008EADA1 /* Trending.swift in Sources */,
+				BE77C1452C170257008EADA1 /* TrendingResponse.swift in Sources */,
+				BE77C1672C17373C008EADA1 /* ImageEndpoint.swift in Sources */,
 				BE77C1512C172485008EADA1 /* GenreEndpoint.swift in Sources */,
+				BE77C1582C172792008EADA1 /* CreditResponse.swift in Sources */,
 				BEE629422C16F1FB009E1884 /* Builder.swift in Sources */,
 				BEE629452C16F800009E1884 /* Buildable.swift in Sources */,
 				BE77C14D2C172270008EADA1 /* TMDBEndpoint.swift in Sources */,
-				BE77C14F2C17234D008EADA1 /* Genre.swift in Sources */,
+				BE77C14F2C17234D008EADA1 /* GenreResponse.swift in Sources */,
+				BE77C1542C17255B008EADA1 /* CreditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

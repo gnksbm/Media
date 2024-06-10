@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions
         : [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        UINavigationBar.appearance().tintColor = .label
+        UIViewController.backButtonTitleSwizzle()
         return true
     }
     

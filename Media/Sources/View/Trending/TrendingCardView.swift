@@ -108,8 +108,8 @@ final class TrendingCardView: UIView {
         }
     }
     
-    func configureView(data: Trending.Item) {
-        mainImageView.kf.setImage(with: data.imageURL)
+    func configureView(data: TrendingResponse.Trending) {
+        mainImageView.kf.setImage(with: data.imageEndpoint)
         gradeLabel.text = data.grade
         titleLabel.text = data.title
         descriptionLabel.text = data.overview

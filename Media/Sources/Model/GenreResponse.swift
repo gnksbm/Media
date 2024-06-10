@@ -1,5 +1,5 @@
 //
-//  Genre.swift
+//  GenreResponse.swift
 //  Media
 //
 //  Created by gnksbm on 6/10/24.
@@ -15,7 +15,9 @@ struct GenreResponse: Codable {
     }
 }
 
-struct Genre: Codable {
-    let id: Int
-    let name: String
+extension GenreResponse {
+    struct Genre: Codable {
+        let id: Int
+        let name: String
+    }
 }

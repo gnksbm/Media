@@ -48,7 +48,7 @@ final class TrendingTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func configureCell(data: Trending.Item, genre: String?) {
+    func configureCell(data: TrendingResponse.Trending, genre: String?) {
         dateLabel.text = data.visibleDate
         genreLabel.text = "#\(genre ?? "")"
         cardView.configureView(data: data)
