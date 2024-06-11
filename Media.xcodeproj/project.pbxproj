@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BE1482172C17E3CC00B7C62C /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = BE1482162C17E3CC00B7C62C /* Genre.json */; };
+		BE1482352C18432C00B7C62C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1482342C18432C00B7C62C /* SearchViewController.swift */; };
+		BE1482372C184A0C00B7C62C /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1482362C184A0C00B7C62C /* SearchCollectionViewCell.swift */; };
 		BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */; };
 		BE77C1452C170257008EADA1 /* TrendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1442C170257008EADA1 /* TrendingResponse.swift */; };
 		BE77C1472C1703C1008EADA1 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		BE1482162C17E3CC00B7C62C /* Genre.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Genre.json; sourceTree = "<group>"; };
+		BE1482342C18432C00B7C62C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BE1482362C184A0C00B7C62C /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCardView.swift; sourceTree = "<group>"; };
 		BE77C1442C170257008EADA1 /* TrendingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResponse.swift; sourceTree = "<group>"; };
 		BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
@@ -99,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE1482332C1842F000B7C62C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BE1482342C18432C00B7C62C /* SearchViewController.swift */,
+				BE1482362C184A0C00B7C62C /* SearchCollectionViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		BE77C1432C170245008EADA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +206,7 @@
 				BE77C14A2C171150008EADA1 /* PaddingLabelView.swift */,
 				BEE6293E2C16F195009E1884 /* Trending */,
 				BE77C1522C17254E008EADA1 /* Credit */,
+				BE1482332C1842F000B7C62C /* Search */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,6 +381,7 @@
 				BEE629402C16F1AA009E1884 /* TrendingTableViewCell.swift in Sources */,
 				BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */,
 				BEC8B2F62C16CF5D0009F325 /* APIKey.swift in Sources */,
+				BE1482372C184A0C00B7C62C /* SearchCollectionViewCell.swift in Sources */,
 				BE77C1692C174BE3008EADA1 /* UIViewController+.swift in Sources */,
 				BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */,
 				BE77C15C2C172C5F008EADA1 /* CreditTVOverViewCell.swift in Sources */,
@@ -381,6 +396,7 @@
 				BE77C14D2C172270008EADA1 /* TMDBEndpoint.swift in Sources */,
 				BE77C14F2C17234D008EADA1 /* GenreResponse.swift in Sources */,
 				BE77C1542C17255B008EADA1 /* CreditViewController.swift in Sources */,
+				BE1482352C18432C00B7C62C /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

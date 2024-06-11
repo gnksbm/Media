@@ -94,7 +94,7 @@ final class TrendingTableViewCell: UITableViewCell {
 import SwiftUI
 struct TrendingTVCellPreview: PreviewProvider {
     static var previews: some View {
-        UIKitPreview {
+        UIViewControllerPreview {
             UINavigationController(rootViewController: TrendingViewController())
         }
     }

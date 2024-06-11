@@ -81,7 +81,6 @@ class CreditViewController: UIViewController {
     }
     
     private func configureUI() {
-        view.backgroundColor = .systemBackground
         title = "출연/제작"
     }
     
@@ -196,7 +195,7 @@ extension CreditViewController {
 import SwiftUI
 struct CreditVCPreview: PreviewProvider {
     static var previews: some View {
-        UIKitPreview {
+        UIViewControllerPreview {
             let navController = UINavigationController(
                 rootViewController: UIViewController()
             )

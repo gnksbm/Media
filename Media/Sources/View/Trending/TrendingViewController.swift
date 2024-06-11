@@ -28,14 +28,9 @@ final class TrendingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
         configureNavigation()
         configureLayout()
         callGenreRequest()
-    }
-    
-    private func configureUI() {
-        view.backgroundColor = .systemBackground
     }
     
     private func configureNavigation() {
@@ -43,7 +38,10 @@ final class TrendingViewController: UIViewController {
             image: UIImage(systemName: "list.triangle")
         )
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "magnifyingglass")
+            image: UIImage(systemName: "magnifyingglass"),
+            style: .plain,
+            target: self,
+            action: #selector(searchButtonTapped)
         )
     }
     
@@ -82,6 +80,13 @@ final class TrendingViewController: UIViewController {
                     print(error.localizedDescription)
                 }
             }
+    }
+    
+    @objc private func searchButtonTapped() {
+        navigationController?.pushViewController(
+            SearchViewController(),
+            animated: true
+        )
     }
 }
 
@@ -127,7 +132,7 @@ extension TrendingViewController: UITableViewDataSource {
 import SwiftUI
 struct TrendingVCPreview: PreviewProvider {
     static var previews: some View {
-        UIKitPreview {
+        UIViewControllerPreview {
             UINavigationController(rootViewController: TrendingViewController())
         }
     }

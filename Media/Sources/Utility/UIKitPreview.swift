@@ -8,7 +8,23 @@
 import SwiftUI
 
 #if DEBUG
-struct UIKitPreview: UIViewControllerRepresentable {
+extension UIViewController {
+    var preview: some View {
+        UIViewControllerPreview {
+            self
+        }
+    }
+}
+
+extension UIView {
+    var preview: some View {
+        UIViewPreview {
+            self
+        }
+    }
+}
+
+struct UIViewControllerPreview: UIViewControllerRepresentable {
     private let viewController: UIViewController
     
     init(_ viewController: () -> UIViewController) {
@@ -23,6 +39,21 @@ struct UIKitPreview: UIViewControllerRepresentable {
         _ uiViewController: UIViewControllerType,
         context: Context
     ) {
+    }
+}
+
+struct UIViewPreview: UIViewRepresentable {
+    private let view: UIView
+    
+    init(_ view: () -> UIView) {
+        self.view = view()
+    }
+    
+    func makeUIView(context: Context) -> some UIView {
+        view
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
     }
 }
 #endif

@@ -182,7 +182,7 @@ final class TrendingCardView: UIView {
 import SwiftUI
 struct TrendingCardViewPreview: PreviewProvider {
     static var previews: some View {
-        UIKitPreview {
+        UIViewControllerPreview {
             UINavigationController(rootViewController: TrendingViewController())
         }
     }

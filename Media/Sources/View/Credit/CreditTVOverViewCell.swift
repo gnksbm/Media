@@ -84,7 +84,7 @@ final class CreditTVOverViewCell: UITableViewCell {
 import SwiftUI
 struct OverViewCellPreview: PreviewProvider {
     static var previews: some View {
-        UIKitPreview {
+        UIViewControllerPreview {
             let navController = UINavigationController(
                 rootViewController: UIViewController()
             )

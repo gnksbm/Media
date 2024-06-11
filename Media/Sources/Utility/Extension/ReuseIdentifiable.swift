@@ -74,4 +74,21 @@ extension UITableView {
         ) as! T
     }
 }
+// MARK: UICollectionReusableView
+extension UICollectionReusableView: ReuseIdentifiable { }
 
+extension UICollectionView {
+    func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
+        register(cellClass, forCellWithReuseIdentifier: cellClass.identifier)
+    }
+    
+    func dequeueReusableCell<T: UICollectionViewCell>(
+        _ cellClass: T.Type,
+        indexPath: IndexPath
+    ) -> T {
+        dequeueReusableCell(
+            withReuseIdentifier: cellClass.identifier,
+            for: indexPath
+        ) as! T
+    }
+}

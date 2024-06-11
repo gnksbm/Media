@@ -77,7 +77,7 @@ final class CreditTVCastCell: UITableViewCell {
 import SwiftUI
 struct CreditCellPreview: PreviewProvider {
     static var previews: some View {
-        UIKitPreview {
+        UIViewControllerPreview {
             let navController = UINavigationController(
                 rootViewController: UIViewController()
             )
