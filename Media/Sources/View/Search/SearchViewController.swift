@@ -12,24 +12,37 @@ import Kingfisher
 import SnapKit
 
 final class SearchViewController: UIViewController {
+    private var searchResult = SearchResponse(
+        page: 0,
+        results: [],
+        totalPages: 0,
+        totalResults: 0
+    ) {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    private var page = 1
+    
+    private lazy var searchBar = UISearchBar().build { builder in
+        builder.placeholder("영화 제목을 검색해보세요.")
+            .delegate(self)
+            .searchBarStyle(.minimal)
+    }
+    
     private lazy var collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: makeLayout()
     ).build { builder in
         builder.dataSource(self)
+            .delegate(self)
             .action { $0.register(SearchCollectionViewCell.self) }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigation()
+        configureUI()
         configureLayout()
-    }
-    
-    private func configureNavigation() {
-        let searchController = UISearchController()
-        searchController.searchBar.placeholder = "영화 제목을 검색해보세요."
-        navigationItem.searchController = searchController
     }
     
     private func configureUI() {
@@ -37,12 +50,18 @@ final class SearchViewController: UIViewController {
     }
     
     private func configureLayout() {
-        [collectionView].forEach { view.addSubview($0) }
+        [searchBar, collectionView].forEach { view.addSubview($0) }
         
         let safeArea = view.safeAreaLayoutGuide
         
+        searchBar.snp.makeConstraints { make in
+            make.top.equalTo(safeArea)
+            make.horizontalEdges.equalTo(safeArea).inset(10)
+        }
+        
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(safeArea)
+            make.top.equalTo(searchBar.snp.bottom)
+            make.horizontalEdges.bottom.equalTo(safeArea)
         }
     }
     
@@ -53,22 +72,76 @@ final class SearchViewController: UIViewController {
             let horizontalInset = inset * (cellCount + 1)
             let cellWidth = (UIScreen.main.bounds.width - horizontalInset)
             / cellCount
-            return builder.itemSize(
-                CGSize(
-                    width: cellWidth,
-                    height: cellWidth * 1.3
+            return builder.scrollDirection(.vertical)
+                .itemSize(
+                    CGSize(
+                        width: cellWidth,
+                        height: cellWidth * 1.3
+                    )
                 )
-            )
-            .minimumLineSpacing(inset)
-            .minimumInteritemSpacing(inset)
-            .sectionInset(
-                UIEdgeInsets(
-                    top: inset,
-                    left: inset,
-                    bottom: 0,
-                    right: inset
+                .minimumLineSpacing(inset)
+                .minimumInteritemSpacing(inset)
+                .sectionInset(
+                    UIEdgeInsets(
+                        top: inset,
+                        left: inset,
+                        bottom: 0,
+                        right: inset
+                    )
                 )
+        }
+    }
+    
+    private func callSearchRequest() {
+        guard let searchTerm = searchBar.text,
+              !searchTerm.isEmpty
+        else { return }
+        AF.request(
+            SearchEndpoint(
+                query: searchTerm,
+                page: page
             )
+        )
+        .responseDecodable(
+            of: SearchResponse.self
+        ) { [weak self] response in
+            guard let self else { return }
+            switch response.result {
+            case .success(let searchResponse):
+                let newResults = searchResult.results + searchResponse.results
+                searchResult = SearchResponse(
+                    page: searchResponse.page,
+                    results: newResults,
+                    totalPages: searchResponse.totalPages,
+                    totalResults: searchResponse.totalResults
+                )
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        page = 1
+        searchResult = SearchResponse(
+            page: 0,
+            results: [],
+            totalPages: 0,
+            totalResults: 0
+        )
+        callSearchRequest()
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate { 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let maxScrollOffset = 
+        (scrollView.contentSize.height - scrollView.bounds.height)
+        if scrollView.contentOffset.y > maxScrollOffset * 0.9 {
+            page += 1
+            callSearchRequest()
         }
     }
 }
@@ -78,7 +151,7 @@ extension SearchViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        10
+        searchResult.results.count
     }
     
     func collectionView(
@@ -89,8 +162,10 @@ extension SearchViewController: UICollectionViewDataSource {
             SearchCollectionViewCell.self,
             indexPath: indexPath
         ).build { builder in
-            builder
-//                .configureCell(data: )
+            builder.action {
+                let data = searchResult.results[indexPath.row]
+                $0.configureCell(data: data)
+            }
         }
     }
 }

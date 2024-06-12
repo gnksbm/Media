@@ -26,12 +26,12 @@ final class SearchCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func configureCell(data: ) {
-//        posterImageView.kf.setImage(with: data.)
-//    }
+    func configureCell(data: SearchResponse.SearchResult) {
+        posterImageView.kf.setImage(with: data.imageEndpoint)
+    }
     
     private func configureUI() {
-        layer.cornerRadius = 8
+        layer.cornerRadius = 4
         clipsToBounds = true
     }
     
