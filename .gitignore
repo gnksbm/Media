@@ -1,5 +1,5 @@
 ### Media Project ###
-Media/Sources/Ignored/**.swift
+*.xcconfig
 
 ### MacOS ###
 .DS_Store

@@ -19,7 +19,7 @@ struct MediaTrendEndpoint: TMDBEndpoint {
         "/3/trending/\(trendType.rawValue)/\(timeWindow.rawValue)"
     }
     
-    var queries: [String: String]? { ["api_key": APIKey.mediaTrend] }
+    var queries: [String: String]? { ["api_key": .tmdbAPIKey] }
     
     init(
         trendType: MediaType,

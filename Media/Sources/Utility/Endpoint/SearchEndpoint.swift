@@ -19,7 +19,7 @@ struct SearchEndpoint: TMDBEndpoint {
         [
             "query": query,
             "page": "\(page)",
-            "api_key": APIKey.mediaTrend
+            "api_key": .tmdbAPIKey
         ]
     }
 }

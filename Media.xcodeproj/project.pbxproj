@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EDCB8B32C295DCE006F7851 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B22C295DCE006F7851 /* String+.swift */; };
 		BE1482172C17E3CC00B7C62C /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = BE1482162C17E3CC00B7C62C /* Genre.json */; };
 		BE1482352C18432C00B7C62C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1482342C18432C00B7C62C /* SearchViewController.swift */; };
 		BE1482372C184A0C00B7C62C /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1482362C184A0C00B7C62C /* SearchCollectionViewCell.swift */; };
@@ -39,7 +40,6 @@
 		BEC8B2ED2C16CEDE0009F325 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BEC8B2EC2C16CEDE0009F325 /* SnapKit */; };
 		BEC8B2F02C16CEED0009F325 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BEC8B2EF2C16CEED0009F325 /* Kingfisher */; };
 		BEC8B2F32C16CF180009F325 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEC8B2F22C16CF180009F325 /* .gitignore */; };
-		BEC8B2F62C16CF5D0009F325 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8B2F52C16CF5D0009F325 /* APIKey.swift */; };
 		BEE629302C16DD61009E1884 /* EndpointRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6292F2C16DD61009E1884 /* EndpointRepresentable.swift */; };
 		BEE629322C16DD7F009E1884 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629312C16DD7F009E1884 /* HTTPMethod.swift */; };
 		BEE629342C16DE40009E1884 /* MediaTrendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */; };
@@ -52,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8EDCB8B12C295D99006F7851 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		8EDCB8B22C295DCE006F7851 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		BE1482162C17E3CC00B7C62C /* Genre.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Genre.json; sourceTree = "<group>"; };
 		BE1482342C18432C00B7C62C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BE1482362C184A0C00B7C62C /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -83,7 +85,6 @@
 		BEC8B2DC2C16CCF20009F325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEC8B2DE2C16CCF20009F325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC8B2F22C16CF180009F325 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		BEC8B2F52C16CF5D0009F325 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		BEE6292F2C16DD61009E1884 /* EndpointRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointRepresentable.swift; sourceTree = "<group>"; };
 		BEE629312C16DD7F009E1884 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		BEE629332C16DE40009E1884 /* MediaTrendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTrendEndpoint.swift; sourceTree = "<group>"; };
@@ -109,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8EDCB8B02C295D90006F7851 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8EDCB8B12C295D99006F7851 /* Debug.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		BE1482332C1842F000B7C62C /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +192,7 @@
 				BEC8B2D92C16CCF20009F325 /* Assets.xcassets */,
 				BEC8B2DB2C16CCF20009F325 /* LaunchScreen.storyboard */,
 				BEC8B2DE2C16CCF20009F325 /* Info.plist */,
+				8EDCB8B02C295D90006F7851 /* Config */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,7 +204,6 @@
 				BE77C1432C170245008EADA1 /* Model */,
 				BEC8B2F12C16CEFF0009F325 /* Utility */,
 				BEC8B2E62C16CD050009F325 /* App */,
-				BEC8B2F42C16CF350009F325 /* Ignored */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -231,19 +240,12 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		BEC8B2F42C16CF350009F325 /* Ignored */ = {
-			isa = PBXGroup;
-			children = (
-				BEC8B2F52C16CF5D0009F325 /* APIKey.swift */,
-			);
-			path = Ignored;
-			sourceTree = "<group>";
-		};
 		BEE6292D2C16D17C009E1884 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */,
 				BE77C1682C174BE3008EADA1 /* UIViewController+.swift */,
+				8EDCB8B22C295DCE006F7851 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -384,6 +386,7 @@
 				BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */,
 				BE77C1492C17076C008EADA1 /* DateFormat.swift in Sources */,
 				BE77C14B2C171150008EADA1 /* PaddingLabelView.swift in Sources */,
+				8EDCB8B32C295DCE006F7851 /* String+.swift in Sources */,
 				BE77C1562C1725CF008EADA1 /* CreditEndpoint.swift in Sources */,
 				BEE629322C16DD7F009E1884 /* HTTPMethod.swift in Sources */,
 				BE77C15A2C172C53008EADA1 /* CreditTVCastCell.swift in Sources */,
@@ -391,7 +394,6 @@
 				BEE629402C16F1AA009E1884 /* TrendingTableViewCell.swift in Sources */,
 				BE1482392C18501000B7C62C /* SearchEndpoint.swift in Sources */,
 				BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */,
-				BEC8B2F62C16CF5D0009F325 /* APIKey.swift in Sources */,
 				BE1482372C184A0C00B7C62C /* SearchCollectionViewCell.swift in Sources */,
 				BE77C1692C174BE3008EADA1 /* UIViewController+.swift in Sources */,
 				BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */,
@@ -547,6 +549,7 @@
 		};
 		BEC8B2E22C16CCF20009F325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EDCB8B12C295D99006F7851 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

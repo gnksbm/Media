@@ -17,7 +17,7 @@ struct CreditEndpoint: TMDBEndpoint {
     
     var queries: [String : String]? {
         [
-            "api_key": APIKey.mediaTrend,
+            "api_key": .tmdbAPIKey,
         ]
     }
 }
