@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 final class SearchDetailViewController: BaseViewController {
+    private let movieID: Int
+    
     private var dataSource: DataSource!
     
     private lazy var collectionView = UICollectionView(
@@ -17,11 +19,23 @@ final class SearchDetailViewController: BaseViewController {
         collectionViewLayout: makeLayout()
     )
     
+    init(movieID: Int) {
+        self.movieID = movieID
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
+        configureNavigation()
         configureDataSource()
-        updateSnapshot()
+        callSimilarRequest()
+        callRecommendRequest()
+        callPosterRequest()
     }
     
     private func configureLayout() {
@@ -31,6 +45,60 @@ final class SearchDetailViewController: BaseViewController {
         
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(safeArea)
+        }
+    }
+    
+    private func configureNavigation() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "ellipsis.circle")
+        )
+    }
+    
+    private func callSimilarRequest() {
+        NetworkService.request(
+            endpoint: SimilarEndpoint(movieID: movieID)
+        ) { (response: SimilarResponse) in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                updateSnapshot(
+                    items: response.imageEndpoints,
+                    toSection: .similar
+                )
+            }
+        } errorHandler: { error in
+            dump(error)
+        }
+    }
+    
+    private func callRecommendRequest() {
+        NetworkService.request(
+            endpoint: RecommendEndpoint(movieID: movieID)
+        ) { (response: RecommendResponse) in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                updateSnapshot(
+                    items: response.imageEndpoints,
+                    toSection: .recommend
+                )
+            }
+        } errorHandler: { error in
+            dump(error)
+        }
+    }
+    
+    private func callPosterRequest() {
+        NetworkService.request(
+            endpoint: PosterEndpoint(movieID: movieID)
+        ) { (response: PosterResponse) in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                updateSnapshot(
+                    items: response.imageEndpoints,
+                    toSection: .poster
+                )
+            }
+        } errorHandler: { error in
+            dump(error)
         }
     }
 }
@@ -107,14 +175,17 @@ extension SearchDetailViewController {
                 )
             } else { nil }
         }
-    }
-    
-    private func updateSnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections(CollectionViewSection.allCases)
-        snapshot.appendItems((0...100).map({ String($0) }), toSection: .similar)
-        snapshot.appendItems((101...200).map({ String($0) }), toSection: .recommend)
-        snapshot.appendItems((201...300).map({ String($0) }), toSection: .poster)
+        dataSource.apply(snapshot)
+    }
+    
+    private func updateSnapshot(
+        items: [ImageEndpoint],
+        toSection: CollectionViewSection
+    ) {
+        var snapshot = dataSource.snapshot()
+        snapshot.appendItems(items, toSection: toSection)
         dataSource.apply(snapshot)
     }
     
@@ -129,24 +200,19 @@ extension SearchDetailViewController {
     }
     
     private func makeCellRegistration() -> CellRegistration {
-        CellRegistration { cell, indexPath, itemIdentifier in
-            cell.backgroundColor = .init(
-                red: .random(in: 0...1),
-                green: .random(in: 0...1),
-                blue: .random(in: 0...1),
-                alpha: 1
-            )
+        CellRegistration { cell, indexPath, item in
+            cell.configureCell(imageEndpoint: item)
         }
     }
     
     typealias DataSource =
-    UICollectionViewDiffableDataSource<CollectionViewSection, String>
+    UICollectionViewDiffableDataSource<CollectionViewSection, ImageEndpoint>
     
     typealias Snapshot =
-    NSDiffableDataSourceSnapshot<CollectionViewSection, String>
+    NSDiffableDataSourceSnapshot<CollectionViewSection, ImageEndpoint>
     
     typealias CellRegistration =
-    UICollectionView.CellRegistration<SearchCollectionViewCell, String>
+    UICollectionView.CellRegistration<SearchDetailViewCVCell, ImageEndpoint>
     
     typealias HeaderRegistration =
     UICollectionView.SupplementaryRegistration<SearchDetailHeaderView>
@@ -171,7 +237,7 @@ extension SearchDetailViewController {
 import SwiftUI
 struct SearchDetailViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        SearchDetailViewController().preview
+        SearchDetailViewController(movieID: 974635).preview
     }
 }
 #endif

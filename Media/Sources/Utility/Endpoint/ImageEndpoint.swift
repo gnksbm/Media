@@ -9,13 +9,13 @@ import Foundation
 
 import Kingfisher
 
-struct ImageEndpoint: HTTPSEndpointRepresentable, Resource {
+struct ImageEndpoint: HTTPSEndpointRepresentable, Resource, Hashable {
+    private let id = UUID()
+    
     let posterPath: String
     
     var host: String { "image.tmdb.org" }
-    
     var httpMethod: HTTPMethod { .get }
-    
     var path: String {
         "/t/p/w500/\(posterPath)"
     }

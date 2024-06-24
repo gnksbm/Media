@@ -133,7 +133,7 @@ extension Builder where Base: UIButton {
             )
             base.setAttributedTitle(attributedString, for: .normal)
         } else {
-            var container = AttributeContainer(attributes)
+            let container = AttributeContainer(attributes)
             base.configuration?.attributedTitle = AttributedString(
                 title,
                 attributes: container
