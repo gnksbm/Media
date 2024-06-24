@@ -56,30 +56,30 @@ final class TrendingViewController: BaseViewController {
     }
     
     private func callGenreRequest() {
-        AF.request(GenreEndpoint())
-            .responseDecodable(of: GenreResponse.self) { [weak self] response in
+        NetworkService.request(
+            endpoint: GenreEndpoint()
+        ) { (response: GenreResponse) in
+            DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-                switch response.result {
-                case .success(let genreResponse):
-                    genreDic = genreResponse.toDic
-                    callTrendingRequest()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
+                genreDic = response.toDic
+                callTrendingRequest()
             }
+        } errorHandler: { error in
+            dump(error)
+        }
     }
     
     private func callTrendingRequest() {
-        AF.request(MediaTrendEndpoint(trendType: .all))
-            .responseDecodable(of: TrendingResponse.self) { [weak self] response in
+        NetworkService.request(
+            endpoint: MediaTrendEndpoint(trendType: .all)
+        ) { (response: TrendingResponse) in
+            DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-                switch response.result {
-                case .success(let trending):
-                    dataList = trending.results
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
+                dataList = response.results
             }
+        } errorHandler: { error in
+            dump(error)
+        }
     }
     
     @objc private func searchButtonTapped() {

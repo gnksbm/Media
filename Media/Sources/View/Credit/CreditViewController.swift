@@ -60,23 +60,21 @@ class CreditViewController: BaseViewController {
     }
     
     func callCreditRequest(data: TrendingResponse.Trending) {
-        AF.request(
-            CreditEndpoint(
+        NetworkService.request(
+            endpoint: CreditEndpoint(
                 mediaType: data.mediaType,
                 creditID: data.id
             )
-        )
-        .responseDecodable(of: CreditResponse.self) { [weak self] response in
-            guard let self else { return }
-            switch response.result {
-            case .success(let credit):
+        ) { (response: CreditResponse) in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
                 overView = (data.overview, false)
                 tableViewHeaderView.kf.setImage(with: data.imageEndpoint)
-                castList = credit.cast
-                crewList = credit.crew
-            case .failure(let error):
-                print(error.localizedDescription)
+                castList = response.cast
+                crewList = response.crew
             }
+        } errorHandler: { error in
+            dump(error)
         }
     }
     

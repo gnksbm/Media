@@ -69,7 +69,6 @@ final class TrendingCardView: UIView {
         var configuration = UIButton.Configuration.borderless()
         configuration.baseBackgroundColor = .systemBackground
         configuration.baseForegroundColor = .label
-        configuration.title = "자세히 보기"
         configuration.image = UIImage(systemName: "chevron.right")
         configuration.imagePlacement = .trailing
         configuration.cornerStyle = .capsule

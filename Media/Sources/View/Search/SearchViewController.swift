@@ -96,28 +96,24 @@ final class SearchViewController: BaseViewController {
         guard let searchTerm = searchBar.text,
               !searchTerm.isEmpty
         else { return }
-        AF.request(
-            SearchEndpoint(
+        NetworkService.request(
+            endpoint: SearchEndpoint(
                 query: searchTerm,
                 page: page
             )
-        )
-        .responseDecodable(
-            of: SearchResponse.self
-        ) { [weak self] response in
-            guard let self else { return }
-            switch response.result {
-            case .success(let searchResponse):
-                let newResults = searchResult.results + searchResponse.results
+        ) { (response: SearchResponse) in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                let newResults = searchResult.results + response.results
                 searchResult = SearchResponse(
-                    page: searchResponse.page,
+                    page: response.page,
                     results: newResults,
-                    totalPages: searchResponse.totalPages,
-                    totalResults: searchResponse.totalResults
+                    totalPages: response.totalPages,
+                    totalResults: response.totalResults
                 )
-            case .failure(let error):
-                print(error.localizedDescription)
             }
+        } errorHandler: { error in
+            dump(error)
         }
     }
 }
