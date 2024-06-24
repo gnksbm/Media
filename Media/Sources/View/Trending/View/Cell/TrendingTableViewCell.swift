@@ -27,9 +27,7 @@ final class TrendingTableViewCell: UITableViewCell {
             .layer(\.shadowOpacity)(0.25)
     }
     
-    private let cardView = TrendingCardView().build { builder in
-        builder
-    }
+    private let cardView = TrendingCardView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

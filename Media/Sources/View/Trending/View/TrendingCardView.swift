@@ -18,40 +18,38 @@ final class TrendingCardView: UIView {
     }
     
     private let clipboardButton = UIButton().build { builder in
-        var configuration = UIButton.Configuration.bordered()
-        configuration.baseBackgroundColor = .systemBackground
-        configuration.baseForegroundColor = .label
-        configuration.image = UIImage(systemName: "paperclip")
-        configuration.preferredSymbolConfigurationForImage
-        = UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 16))
-        configuration.cornerStyle = .capsule
-        configuration.titlePadding = .zero
-        return builder.configuration(configuration)
+        builder.configuration(.bordered())
+            .configuration(\.baseBackgroundColor)(.systemBackground)
+            .configuration(\.baseForegroundColor)(.label)
+            .configuration(\.image)(UIImage(systemName: "paperclip"))
+            .configuration(\.preferredSymbolConfigurationForImage)(UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 16)))
+            .configuration(\.cornerStyle)(.capsule)
+            .configuration(\.titlePadding)(.zero)
     }
     
-    private let gradeDescriptionLabel = PaddingLabelView(padding: 7)
-        .build { builder in
-            builder.text("평점")
-                .backgroundColor(
-                    UIColor(
-                        red: 0.3468087614,
-                        green: 0.3369399607,
-                        blue: 0.8411970139,
-                        alpha: 1
-                    )
+    private let gradeDescriptionLabel = PaddingLabelView(
+        padding: 7
+    ).build { builder in
+        builder.text("평점")
+            .backgroundColor(
+                UIColor(
+                    red: 0.3468087614,
+                    green: 0.3369399607,
+                    blue: 0.8411970139,
+                    alpha: 1
                 )
-                .textColor(.white)
-                .font(.systemFont(ofSize: 15))
-        }
+            )
+            .textColor(.white)
+            .font(.systemFont(ofSize: 15))
+    }
     
     private let gradeLabel = PaddingLabelView(
         horizontal: 12,
         vertical: 7
-    )
-        .build { builder in
-            builder.backgroundColor(.systemBackground)
-                .font(.systemFont(ofSize: 16, weight: .regular))
-        }
+    ).build { builder in
+        builder.backgroundColor(.systemBackground)
+            .font(.systemFont(ofSize: 16, weight: .regular))
+    }
     
     private let titleLabel = UILabel().build { builder in
         builder.font(.systemFont(ofSize: 22))
@@ -66,21 +64,19 @@ final class TrendingCardView: UIView {
     }
     
     private let detailButton = UIButton().build { builder in
-        var configuration = UIButton.Configuration.borderless()
-        configuration.baseBackgroundColor = .systemBackground
-        configuration.baseForegroundColor = .label
-        configuration.image = UIImage(systemName: "chevron.right")
-        configuration.imagePlacement = .trailing
-        configuration.cornerStyle = .capsule
-        configuration.titlePadding = .zero
-        var container = AttributeContainer(
-            [.font : UIFont.systemFont(ofSize: 15)]
-        )
-        configuration.attributedTitle = AttributedString(
-            "자세히 보기",
-            attributes: container
-        )
-        return builder.configuration(configuration)
+        builder.configuration(.borderless())
+            .configuration(\.baseBackgroundColor)(.systemBackground)
+            .configuration(\.baseForegroundColor)(.label)
+            .configuration(\.image)(UIImage(systemName: "chevron.right"))
+            .configuration(\.imagePlacement)(.trailing)
+            .configuration(\.cornerStyle)(.capsule)
+            .configuration(\.titlePadding)(.zero)
+            .attributedTitle(
+                "자세히 보기",
+                attributes: [
+                    .font : UIFont.systemFont(ofSize: 15)
+                ]
+            )
     }
     
     override init(frame: CGRect) {

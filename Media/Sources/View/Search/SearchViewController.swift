@@ -36,7 +36,7 @@ final class SearchViewController: BaseViewController {
     ).build { builder in
         builder.dataSource(self)
             .delegate(self)
-            .capture { $0.register(SearchCollectionViewCell.self) }
+            .register(SearchCollectionViewCell.self)
     }
     
     override func viewDidLoad() {

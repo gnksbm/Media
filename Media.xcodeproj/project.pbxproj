@@ -305,7 +305,6 @@
 				BEE629412C16F1FB009E1884 /* Builder.swift */,
 				BEE6292E2C16DD58009E1884 /* Endpoint */,
 				BEE6292D2C16D17C009E1884 /* Extension */,
-				BEE629432C16F7F6009E1884 /* Builder */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -355,13 +354,6 @@
 				8EDCB8B72C296070006F7851 /* View */,
 			);
 			path = Trending;
-			sourceTree = "<group>";
-		};
-		BEE629432C16F7F6009E1884 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
