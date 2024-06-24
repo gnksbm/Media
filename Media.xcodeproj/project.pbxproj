@@ -50,7 +50,6 @@
 		BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */; };
 		BEE629402C16F1AA009E1884 /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6293F2C16F1AA009E1884 /* TrendingTableViewCell.swift */; };
 		BEE629422C16F1FB009E1884 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629412C16F1FB009E1884 /* Builder.swift */; };
-		BEE629452C16F800009E1884 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE629442C16F800009E1884 /* Buildable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,7 +96,6 @@
 		BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitPreview.swift; sourceTree = "<group>"; };
 		BEE6293F2C16F1AA009E1884 /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
 		BEE629412C16F1FB009E1884 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
-		BEE629442C16F800009E1884 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +278,7 @@
 				BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */,
 				BE77C1482C17076C008EADA1 /* DateFormat.swift */,
 				8EDCB8BB2C296246006F7851 /* NetworkService.swift */,
+				BEE629412C16F1FB009E1884 /* Builder.swift */,
 				BEE6292E2C16DD58009E1884 /* Endpoint */,
 				BEE6292D2C16D17C009E1884 /* Extension */,
 				BEE629432C16F7F6009E1884 /* Builder */,
@@ -334,8 +333,6 @@
 		BEE629432C16F7F6009E1884 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				BEE629412C16F1FB009E1884 /* Builder.swift */,
-				BEE629442C16F800009E1884 /* Buildable.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -454,7 +451,6 @@
 				BE77C1512C172485008EADA1 /* GenreEndpoint.swift in Sources */,
 				BE77C1582C172792008EADA1 /* CreditResponse.swift in Sources */,
 				BEE629422C16F1FB009E1884 /* Builder.swift in Sources */,
-				BEE629452C16F800009E1884 /* Buildable.swift in Sources */,
 				BE77C14D2C172270008EADA1 /* TMDBEndpoint.swift in Sources */,
 				BE77C14F2C17234D008EADA1 /* GenreResponse.swift in Sources */,
 				BE77C1542C17255B008EADA1 /* CreditViewController.swift in Sources */,

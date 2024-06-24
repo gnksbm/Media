@@ -19,15 +19,12 @@ final class TrendingTableViewCell: UITableViewCell {
     }
     
     private lazy var cardShadowView = UIView().build { builder in
-        builder.action { view in
-            view.layer.shadowRadius = 10
-            view.layer.shadowOffset = CGSize(
-                width: 0,
-                height: 5
+        builder.layer(\.shadowRadius)(10)
+            .layer(\.shadowOffset)(CGSize(width: 0, height: 5))
+            .layer(\.borderColor)(
+                UIColor.secondarySystemGroupedBackground.cgColor
             )
-            view.layer.borderColor = UIColor.secondarySystemGroupedBackground.cgColor
-            view.layer.shadowOpacity = 0.25
-        }
+            .layer(\.shadowOpacity)(0.25)
     }
     
     private let cardView = TrendingCardView().build { builder in

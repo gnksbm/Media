@@ -36,7 +36,7 @@ final class SearchViewController: BaseViewController {
     ).build { builder in
         builder.dataSource(self)
             .delegate(self)
-            .action { $0.register(SearchCollectionViewCell.self) }
+            .capture { $0.register(SearchCollectionViewCell.self) }
     }
     
     override func viewDidLoad() {
@@ -158,7 +158,7 @@ extension SearchViewController: UICollectionViewDataSource {
             SearchCollectionViewCell.self,
             indexPath: indexPath
         ).build { builder in
-            builder.action {
+            builder.capture {
                 let data = searchResult.results[indexPath.row]
                 $0.configureCell(data: data)
             }

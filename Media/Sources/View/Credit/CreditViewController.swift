@@ -47,10 +47,8 @@ class CreditViewController: BaseViewController {
         builder.delegate(self)
             .dataSource(self)
             .tableHeaderView(tableViewHeaderView)
-            .action {
-                $0.register(CreditTVCastCell.self)
-                $0.register(CreditTVOverViewCell.self)
-            }
+            .register(CreditTVCastCell.self)
+            .register(CreditTVOverViewCell.self)
     }
     
     override func viewDidLoad() {

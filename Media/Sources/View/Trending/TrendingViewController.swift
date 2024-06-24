@@ -23,7 +23,7 @@ final class TrendingViewController: BaseViewController {
         builder.separatorStyle(.none)
             .delegate(self)
             .dataSource(self)
-            .action { $0.register(TrendingTableViewCell.self) }
+            .register(TrendingTableViewCell.self)
     }
     
     override func viewDidLoad() {

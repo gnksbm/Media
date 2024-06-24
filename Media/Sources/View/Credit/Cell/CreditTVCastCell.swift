@@ -15,7 +15,7 @@ final class CreditTVCastCell: UITableViewCell {
         builder.contentMode(.scaleAspectFill)
             .clipsToBounds(true)
             .backgroundColor(.tertiarySystemFill)
-            .action { $0.layer.cornerRadius = 8 }
+            .layer(\.cornerRadius)(8)
     }
     
     private let nameLabel = UILabel().build { builder in

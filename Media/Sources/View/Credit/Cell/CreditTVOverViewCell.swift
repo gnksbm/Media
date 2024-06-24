@@ -20,13 +20,11 @@ final class CreditTVOverViewCell: UITableViewCell {
     
     private lazy var expandButton = UIButton().build { builder in
         builder.tintColor(.label)
-            .action {
-                $0.addTarget(
-                    self,
-                    action: #selector(expandButtonTapped),
-                    for: .touchUpInside
-                )
-            }
+            .addTarget(
+                self,
+                action: #selector(expandButtonTapped),
+                for: .touchUpInside
+            )
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
