@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         : [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         UINavigationBar.appearance().tintColor = .label
-        UIViewController.defaultUISwizzle()
         return true
     }
     

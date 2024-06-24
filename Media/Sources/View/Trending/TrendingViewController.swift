@@ -11,7 +11,7 @@ import Alamofire
 import Kingfisher
 import SnapKit
 
-final class TrendingViewController: UIViewController {
+final class TrendingViewController: BaseViewController {
     private var dataList = [TrendingResponse.Trending]() {
         didSet {
             tableView.reloadData()

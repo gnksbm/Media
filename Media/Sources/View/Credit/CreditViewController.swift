@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SnapKit
 
-class CreditViewController: UIViewController {
+class CreditViewController: BaseViewController {
     private var overView: (String, isExpanded: Bool) = ("", false) {
         didSet {
             tableView.reloadSections(

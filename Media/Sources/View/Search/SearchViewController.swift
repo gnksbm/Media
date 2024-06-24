@@ -11,7 +11,7 @@ import Alamofire
 import Kingfisher
 import SnapKit
 
-final class SearchViewController: UIViewController {
+final class SearchViewController: BaseViewController {
     private var searchResult = SearchResponse(
         page: 0,
         results: [],
