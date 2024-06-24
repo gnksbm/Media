@@ -10,6 +10,8 @@
 		8EDCB8B32C295DCE006F7851 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B22C295DCE006F7851 /* String+.swift */; };
 		8EDCB8B62C295FE9006F7851 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */; };
 		8EDCB8BC2C296246006F7851 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8BB2C296246006F7851 /* NetworkService.swift */; };
+		8EDCB8C02C299B10006F7851 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8BF2C299B10006F7851 /* SearchDetailViewController.swift */; };
+		8EDCB8C32C29A07C006F7851 /* SearchDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8C22C29A07C006F7851 /* SearchDetailHeaderView.swift */; };
 		BE1482172C17E3CC00B7C62C /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = BE1482162C17E3CC00B7C62C /* Genre.json */; };
 		BE1482352C18432C00B7C62C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1482342C18432C00B7C62C /* SearchViewController.swift */; };
 		BE1482372C184A0C00B7C62C /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1482362C184A0C00B7C62C /* SearchCollectionViewCell.swift */; };
@@ -57,6 +59,8 @@
 		8EDCB8B22C295DCE006F7851 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8EDCB8BB2C296246006F7851 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8EDCB8BF2C299B10006F7851 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		8EDCB8C22C29A07C006F7851 /* SearchDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailHeaderView.swift; sourceTree = "<group>"; };
 		BE1482162C17E3CC00B7C62C /* Genre.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Genre.json; sourceTree = "<group>"; };
 		BE1482342C18432C00B7C62C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BE1482362C184A0C00B7C62C /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -155,19 +159,21 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		8EDCB8BA2C29607C006F7851 /* Cell */ = {
+		8EDCB8C12C29A059006F7851 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
 				BE1482362C184A0C00B7C62C /* SearchCollectionViewCell.swift */,
+				8EDCB8C22C29A07C006F7851 /* SearchDetailHeaderView.swift */,
 			);
-			path = Cell;
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 		BE1482332C1842F000B7C62C /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				BE1482342C18432C00B7C62C /* SearchViewController.swift */,
-				8EDCB8BA2C29607C006F7851 /* Cell */,
+				8EDCB8BF2C299B10006F7851 /* SearchDetailViewController.swift */,
+				8EDCB8C12C29A059006F7851 /* Reusable */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -439,7 +445,9 @@
 				BE1482392C18501000B7C62C /* SearchEndpoint.swift in Sources */,
 				BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */,
 				BE1482372C184A0C00B7C62C /* SearchCollectionViewCell.swift in Sources */,
+				8EDCB8C32C29A07C006F7851 /* SearchDetailHeaderView.swift in Sources */,
 				BE77C1692C174BE3008EADA1 /* UIViewController+.swift in Sources */,
+				8EDCB8C02C299B10006F7851 /* SearchDetailViewController.swift in Sources */,
 				BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */,
 				BE77C15C2C172C5F008EADA1 /* CreditTVOverViewCell.swift in Sources */,
 				BEE629302C16DD61009E1884 /* EndpointRepresentable.swift in Sources */,
