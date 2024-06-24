@@ -28,7 +28,7 @@ extension TrendingResponse {
         let mediaType: MediaType
         let adult: Bool
         let title: String?
-        let originalLanguage: OriginalLanguage
+        let originalLanguage: String
         let genreIDS: [Int]
         let popularity: Double
         let releaseDate: String?
@@ -88,10 +88,6 @@ extension TrendingResponse {
     
     enum MediaType: String, Codable {
         case movie, tv
-    }
-    
-    enum OriginalLanguage: String, Codable {
-        case en, fr, ja, zh
     }
 }
 
