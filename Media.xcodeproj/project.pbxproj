@@ -30,6 +30,7 @@
 		BE76B3282C2AAE1900CEE3BA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76B3272C2AAE1900CEE3BA /* BaseTableViewCell.swift */; };
 		BE76B32A2C2AAEA100CEE3BA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76B3292C2AAEA100CEE3BA /* BaseView.swift */; };
 		BE76B32C2C2AAEC400CEE3BA /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76B32B2C2AAEC400CEE3BA /* BaseCollectionViewCell.swift */; };
+		BE76B32E2C2AB00700CEE3BA /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76B32D2C2AB00700CEE3BA /* Dictionary+.swift */; };
 		BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */; };
 		BE77C1452C170257008EADA1 /* TrendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1442C170257008EADA1 /* TrendingResponse.swift */; };
 		BE77C1472C1703C1008EADA1 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */; };
@@ -90,6 +91,7 @@
 		BE76B3272C2AAE1900CEE3BA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		BE76B3292C2AAEA100CEE3BA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		BE76B32B2C2AAEC400CEE3BA /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE76B32D2C2AB00700CEE3BA /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCardView.swift; sourceTree = "<group>"; };
 		BE77C1442C170257008EADA1 /* TrendingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResponse.swift; sourceTree = "<group>"; };
 		BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */,
 				BE77C1682C174BE3008EADA1 /* UIViewController+.swift */,
 				8EDCB8B22C295DCE006F7851 /* String+.swift */,
+				BE76B32D2C2AB00700CEE3BA /* Dictionary+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				8EDCB8CF2C29C4C5006F7851 /* RecommendResponse.swift in Sources */,
 				BE77C15C2C172C5F008EADA1 /* CreditTVOverViewCell.swift in Sources */,
 				BEE629302C16DD61009E1884 /* EndpointRepresentable.swift in Sources */,
+				BE76B32E2C2AB00700CEE3BA /* Dictionary+.swift in Sources */,
 				BE76B32C2C2AAEC400CEE3BA /* BaseCollectionViewCell.swift in Sources */,
 				BE14823F2C18558A00B7C62C /* SearchResponse.swift in Sources */,
 				8EDCB8CD2C29C2F2006F7851 /* PosterResponse.swift in Sources */,

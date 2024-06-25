@@ -19,7 +19,6 @@ struct SearchEndpoint: TMDBEndpoint {
         [
             "query": query,
             "page": "\(page)",
-            "api_key": .tmdbAPIKey
-        ]
+        ].withTMDBAPIKey()
     }
 }

@@ -15,9 +15,5 @@ struct CreditEndpoint: TMDBEndpoint {
     
     var path: String { "/3/\(mediaType.rawValue)/\(creditID)/credits" }
     
-    var queries: [String : String]? {
-        [
-            "api_key": .tmdbAPIKey,
-        ]
-    }
+    var queries: [String : String]? { .tmdbAPIKey }
 }

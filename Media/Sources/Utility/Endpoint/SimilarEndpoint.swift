@@ -17,9 +17,8 @@ struct SimilarEndpoint: TMDBEndpoint {
     }
     var queries: [String : String]? {
         [
-            "api_key": .tmdbAPIKey,
             "language": "en-US",
             "page": "1"
-        ]
+        ].withTMDBAPIKey()
     }
 }

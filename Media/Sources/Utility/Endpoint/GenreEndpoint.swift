@@ -14,8 +14,7 @@ struct GenreEndpoint: TMDBEndpoint {
     
     var queries: [String : String]? {
         [
-            "api_key": .tmdbAPIKey,
             "language": "ko"
-        ]
+        ].withTMDBAPIKey()
     }
 }

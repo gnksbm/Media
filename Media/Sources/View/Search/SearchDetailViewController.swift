@@ -88,6 +88,7 @@ final class SearchDetailViewController: BaseViewController {
         }
     }
     
+    @available(*, deprecated, renamed: "callRequest")
     private func callSimilarRequest() {
         NetworkService.request(
             endpoint: SimilarEndpoint(movieID: movieID)
@@ -104,6 +105,7 @@ final class SearchDetailViewController: BaseViewController {
         }
     }
     
+    @available(*, deprecated, renamed: "callRequest")
     private func callRecommendRequest() {
         NetworkService.request(
             endpoint: RecommendEndpoint(movieID: movieID)
@@ -120,6 +122,7 @@ final class SearchDetailViewController: BaseViewController {
         }
     }
     
+    @available(*, deprecated, renamed: "callRequest")
     private func callPosterRequest() {
         NetworkService.request(
             endpoint: PosterEndpoint(movieID: movieID)
@@ -214,6 +217,7 @@ extension SearchDetailViewController {
         dataSource.apply(snapshot)
     }
     
+    @available(*, deprecated, renamed: "updateSnapshot(itemDic:)")
     private func updateSnapshot(
         items: [ImageEndpoint],
         toSection: CollectionViewSection

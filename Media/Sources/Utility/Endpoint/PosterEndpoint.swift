@@ -15,9 +15,5 @@ struct PosterEndpoint: TMDBEndpoint {
     var header: [String : String]? {
         ["Content-Type": "application/json"]
     }
-    var queries: [String : String]? {
-        [
-            "api_key": .tmdbAPIKey,
-        ]
-    }
+    var queries: [String : String]? { .tmdbAPIKey }
 }
