@@ -25,6 +25,7 @@
 		BE1482392C18501000B7C62C /* SearchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1482382C18501000B7C62C /* SearchEndpoint.swift */; };
 		BE14823D2C18554100B7C62C /* Search.json in Resources */ = {isa = PBXBuildFile; fileRef = BE14823C2C18554100B7C62C /* Search.json */; };
 		BE14823F2C18558A00B7C62C /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14823E2C18558A00B7C62C /* SearchResponse.swift */; };
+		BE76B3232C2AA94200CEE3BA /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BE76B3222C2AA94200CEE3BA /* Debug.xcconfig */; };
 		BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */; };
 		BE77C1452C170257008EADA1 /* TrendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1442C170257008EADA1 /* TrendingResponse.swift */; };
 		BE77C1472C1703C1008EADA1 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */; };
@@ -62,7 +63,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8EDCB8B12C295D99006F7851 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		8EDCB8B22C295DCE006F7851 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8EDCB8BB2C296246006F7851 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -81,6 +81,7 @@
 		BE1482382C18501000B7C62C /* SearchEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEndpoint.swift; sourceTree = "<group>"; };
 		BE14823C2C18554100B7C62C /* Search.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Search.json; sourceTree = "<group>"; };
 		BE14823E2C18558A00B7C62C /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		BE76B3222C2AA94200CEE3BA /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		BE77C1412C16FEE1008EADA1 /* TrendingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCardView.swift; sourceTree = "<group>"; };
 		BE77C1442C170257008EADA1 /* TrendingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResponse.swift; sourceTree = "<group>"; };
 		BE77C1462C1703C1008EADA1 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
@@ -130,14 +131,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8EDCB8B02C295D90006F7851 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				8EDCB8B12C295D99006F7851 /* Debug.xcconfig */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		8EDCB8B42C295FDF006F7851 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +253,7 @@
 				BEC8B2D92C16CCF20009F325 /* Assets.xcassets */,
 				BEC8B2DB2C16CCF20009F325 /* LaunchScreen.storyboard */,
 				BEC8B2DE2C16CCF20009F325 /* Info.plist */,
-				8EDCB8B02C295D90006F7851 /* Config */,
+				BE76B3222C2AA94200CEE3BA /* Debug.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -428,6 +421,7 @@
 				BE77C1632C17303D008EADA1 /* Trending.json in Resources */,
 				BEC8B2DA2C16CCF20009F325 /* Assets.xcassets in Resources */,
 				BE77C1612C172F2F008EADA1 /* Credit.json in Resources */,
+				BE76B3232C2AA94200CEE3BA /* Debug.xcconfig in Resources */,
 				BEC8B2F32C16CF180009F325 /* .gitignore in Resources */,
 				BEC8B2DD2C16CCF20009F325 /* Base in Resources */,
 				BE14823D2C18554100B7C62C /* Search.json in Resources */,
@@ -621,7 +615,7 @@
 		};
 		BEC8B2E22C16CCF20009F325 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EDCB8B12C295D99006F7851 /* Debug.xcconfig */;
+			baseConfigurationReference = BE76B3222C2AA94200CEE3BA /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

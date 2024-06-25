@@ -33,9 +33,7 @@ final class SearchDetailViewController: BaseViewController {
         configureLayout()
         configureNavigation()
         configureDataSource()
-        callSimilarRequest()
-        callRecommendRequest()
-        callPosterRequest()
+        callRequest()
     }
     
     private func configureLayout() {
@@ -52,6 +50,44 @@ final class SearchDetailViewController: BaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "ellipsis.circle")
         )
+    }
+    
+    private func callRequest() {
+        let group = DispatchGroup()
+        var itemDic = [CollectionViewSection: [ImageEndpoint]]()
+        group.enter()
+        NetworkService.request(
+            endpoint: SimilarEndpoint(movieID: movieID)
+        ) { (response: SimilarResponse) in
+            itemDic[.similar] = response.imageEndpoints
+            group.leave()
+        } errorHandler: { error in
+            dump(error)
+            group.leave()
+        }
+        group.enter()
+        NetworkService.request(
+            endpoint: RecommendEndpoint(movieID: movieID)
+        ) { (response: RecommendResponse) in
+            itemDic[.recommend] = response.imageEndpoints
+            group.leave()
+        } errorHandler: { error in
+            dump(error)
+            group.leave()
+        }
+        group.enter()
+        NetworkService.request(
+            endpoint: PosterEndpoint(movieID: movieID)
+        ) { (response: PosterResponse) in
+            itemDic[.poster] = response.imageEndpoints
+            group.leave()
+        } errorHandler: { error in
+            dump(error)
+            group.leave()
+        }
+        group.notify(queue: .main) { [weak self] in
+            self?.updateSnapshot(itemDic: itemDic)
+        }
     }
     
     private func callSimilarRequest() {
@@ -186,6 +222,16 @@ extension SearchDetailViewController {
     ) {
         var snapshot = dataSource.snapshot()
         snapshot.appendItems(items, toSection: toSection)
+        dataSource.apply(snapshot)
+    }
+    
+    private func updateSnapshot(
+        itemDic: [CollectionViewSection: [ImageEndpoint]]
+    ) {
+        var snapshot = dataSource.snapshot()
+        itemDic.forEach { section, items in
+            snapshot.appendItems(items, toSection: section)
+        }
         dataSource.apply(snapshot)
     }
     
