@@ -26,54 +26,38 @@ struct Builder<Base: AnyObject> {
     init(_ base: Base) {
         self.base = base
     }
-    
-    subscript<Property>(
-        dynamicMember keyPath: ReferenceWritableKeyPath<Base, Property>
-    ) -> (_ newValue: Property) -> Builder<Base> {
+    /// Base의 프로퍼티 값 설정  ex) builder.text("a")
+    subscript<Value>(
+        dynamicMember keyPath: ReferenceWritableKeyPath<Base, Value>
+    ) -> (Value) -> Builder<Base> {
         { newValue in
             base[keyPath: keyPath] = newValue
-            return Builder(base)
+            return self
         }
     }
-    /// Reference타입 중첩 프로퍼티
-    subscript<Property, NestedProperty>(
+    /// Reference타입 중첩 프로퍼티 값 설정 ex) builder.layer(\.cornerRadius)(10)
+    subscript<Property, NestedValue>(
         dynamicMember keyPath: KeyPath<Base, Property>
-    ) -> (_ nestedKeyPath: ReferenceWritableKeyPath<Property, NestedProperty>
-    ) -> (_ newValue: NestedProperty) -> Builder<Base> {
+    ) -> (_ nestedKeyPath: ReferenceWritableKeyPath<Property, NestedValue>
+    ) -> (_ newValue: NestedValue) -> Builder<Base> {
         { nestedKeyPath in
             { newValue in
-                base[keyPath: keyPath][keyPath: nestedKeyPath] = newValue
+                base[keyPath: keyPath.appending(path: nestedKeyPath)] = newValue
                 return Builder(base)
             }
         }
     }
-    /// Value타입 중첩 프로퍼티
-    subscript<Property, NestedProperty>(
-        dynamicMember keyPath: ReferenceWritableKeyPath<Base, Property>
-    ) -> (_ nestedKeyPath: WritableKeyPath<Property, NestedProperty>
-    ) -> (_ newValue: NestedProperty) -> Builder<Base> {
+    /// Value타입 옵셔널 중첩 프로퍼티 값 설정 ex) builder.configuration(\.baseBackgroundColor)(.black)
+    subscript<Value, NestedValue>(
+        dynamicMember keyPath: KeyPath<Base, Value?>
+    ) -> (WritableKeyPath<Value, NestedValue>
+    ) -> (NestedValue
+    ) -> Builder<Base> {
         { nestedKeyPath in
             { newValue in
-                var valueTypeProperty = base[keyPath: keyPath]
-                valueTypeProperty[keyPath: nestedKeyPath] = newValue
-                base[keyPath: keyPath] = valueTypeProperty
-                return Builder(base)
-            }
-        }
-    }
-    /// Value타입 옵셔널 중첩 프로퍼티
-    subscript<Property, NestedProperty>(
-        dynamicMember keyPath:
-        ReferenceWritableKeyPath<Base, Optional<Property>>
-    ) -> (_ nestedKeyPath: WritableKeyPath<Property, NestedProperty>
-    ) -> (_ newValue: NestedProperty) -> Builder<Base> {
-        { nestedKeyPath in
-            { newValue in
-                var valueTypeProperty: Optional<Property> =
-                base[keyPath: keyPath]
-                valueTypeProperty?[keyPath: nestedKeyPath] = newValue
-                base[keyPath: keyPath] = valueTypeProperty
-                return Builder(base)
+                var value = base[keyPath: keyPath]
+                value?[keyPath: nestedKeyPath] = newValue
+                return self
             }
         }
     }
@@ -155,6 +139,17 @@ extension Builder where Base: UICollectionView {
         _ cellClass: T.Type
     ) -> Builder<Base> {
         base.register(cellClass)
+        return self
+    }
+}
+
+extension Builder where Base: UIControl {
+    func addTarget(
+        _ target: Any?,
+        action: Selector,
+        for controlEvents: UIControl.Event
+    ) -> Builder<Base> {
+        base.addTarget(target, action: action, for: controlEvents)
         return self
     }
 }
