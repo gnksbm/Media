@@ -15,6 +15,11 @@ final class SearchCollectionViewCell: BaseCollectionViewCell {
             .backgroundColor(.tertiarySystemFill)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterImageView.image = nil
+    }
+    
     func configureCell(data: SearchResponse.SearchResult) {
         posterImageView.setImage(with: data.imageEndpoint)
     }

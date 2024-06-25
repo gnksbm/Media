@@ -26,6 +26,11 @@ final class CreditTVCastCell: BaseTableViewCell {
             .textColor(.tertiaryLabel)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
+    }
+    
     func configureCell(data: CreditResponse.Cast) {
         profileImageView.setImage(with: data.imageEndpoint)
         nameLabel.text = data.name
