@@ -7,7 +7,6 @@
 
 import UIKit
 
-import Alamofire
 import SnapKit
 
 class CreditViewController: BaseViewController {
@@ -65,7 +64,7 @@ class CreditViewController: BaseViewController {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 overView = (data.overview, false)
-                tableViewHeaderView.kf.setImage(with: data.imageEndpoint)
+                tableViewHeaderView.setImage(with: data.imageEndpoint)
                 castList = response.cast
                 crewList = response.crew
             }

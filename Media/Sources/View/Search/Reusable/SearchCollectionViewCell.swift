@@ -8,7 +8,6 @@
 import UIKit
 
 import SnapKit
-import Kingfisher
 
 final class SearchCollectionViewCell: BaseCollectionViewCell {
     private let posterImageView = UIImageView().build { builder in
@@ -17,7 +16,7 @@ final class SearchCollectionViewCell: BaseCollectionViewCell {
     }
     
     func configureCell(data: SearchResponse.SearchResult) {
-        posterImageView.kf.setImage(with: data.imageEndpoint)
+        posterImageView.setImage(with: data.imageEndpoint)
     }
     
     override func configureUI() {

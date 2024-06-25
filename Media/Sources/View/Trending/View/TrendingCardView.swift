@@ -8,7 +8,6 @@
 import UIKit
 
 import SnapKit
-import Kingfisher
 
 final class TrendingCardView: BaseView {
     private let mainImageView = UIImageView().build { builder in
@@ -22,7 +21,9 @@ final class TrendingCardView: BaseView {
             .configuration(\.baseBackgroundColor)(.systemBackground)
             .configuration(\.baseForegroundColor)(.label)
             .configuration(\.image)(UIImage(systemName: "paperclip"))
-            .configuration(\.preferredSymbolConfigurationForImage)(UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 16)))
+            .configuration(\.preferredSymbolConfigurationForImage)(
+                UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 16))
+            )
             .configuration(\.cornerStyle)(.capsule)
             .configuration(\.titlePadding)(.zero)
     }
@@ -88,13 +89,14 @@ final class TrendingCardView: BaseView {
         super.draw(rect)
         if let titleWidth = detailButton.titleLabel?.bounds.width,
            let imageWidth = detailButton.imageView?.bounds.width {
-            let imagePadding = detailButton.bounds.width - titleWidth - imageWidth
+            let imagePadding = 
+            detailButton.bounds.width - titleWidth - imageWidth
             detailButton.configuration?.imagePadding = imagePadding
         }
     }
     
     func configureView(data: TrendingResponse.Trending) {
-        mainImageView.kf.setImage(with: data.imageEndpoint)
+        mainImageView.setImage(with: data.imageEndpoint)
         gradeLabel.text = data.grade
         titleLabel.text = data.title
         descriptionLabel.text = data.overview

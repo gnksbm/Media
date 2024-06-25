@@ -8,7 +8,6 @@
 import UIKit
 
 import SnapKit
-import Kingfisher
 
 final class CreditTVCastCell: BaseTableViewCell {
     private let profileImageView = UIImageView().build { builder in
@@ -28,7 +27,7 @@ final class CreditTVCastCell: BaseTableViewCell {
     }
     
     func configureCell(data: CreditResponse.Cast) {
-        profileImageView.kf.setImage(with: data.imageEndpoint)
+        profileImageView.setImage(with: data.imageEndpoint)
         nameLabel.text = data.name
         descriptionLabel.text = data.description
     }

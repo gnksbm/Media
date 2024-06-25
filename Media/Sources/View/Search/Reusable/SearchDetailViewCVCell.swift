@@ -7,8 +7,6 @@
 
 import UIKit
 
-import Kingfisher
-
 final class SearchDetailViewCVCell: BaseCollectionViewCell {
     private let posterImageView = UIImageView().build { builder in
         builder.contentMode(.scaleAspectFill)
@@ -16,7 +14,7 @@ final class SearchDetailViewCVCell: BaseCollectionViewCell {
     }
     
     func configureCell(imageEndpoint: ImageEndpoint) {
-        posterImageView.kf.setImage(with: imageEndpoint)
+        posterImageView.setImage(with: imageEndpoint)
     }
     
     override func configureUI() {

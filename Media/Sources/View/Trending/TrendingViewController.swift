@@ -7,8 +7,6 @@
 
 import UIKit
 
-import Alamofire
-import Kingfisher
 import SnapKit
 
 final class TrendingViewController: BaseViewController {
