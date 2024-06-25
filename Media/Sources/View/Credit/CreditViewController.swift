@@ -53,8 +53,6 @@ class CreditViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        configureLayout()
     }
     
     func callCreditRequest(data: TrendingResponse.Trending) {
@@ -76,11 +74,11 @@ class CreditViewController: BaseViewController {
         }
     }
     
-    private func configureUI() {
-        title = "출연/제작"
+    override func configureNavigationTitle() {
+        navigationItem.title = "출연/제작"
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         [tableView].forEach { view.addSubview($0) }
         
         let safeArea = view.safeAreaLayoutGuide

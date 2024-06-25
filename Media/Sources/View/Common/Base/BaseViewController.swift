@@ -19,7 +19,20 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDefaultUI()
+        configureNavigation()
+        configureUI()
+        configureLayout()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationTitle()
+    }
+    
+    func configureNavigationTitle() { }
+    func configureNavigation() { }
+    func configureUI() { }
+    func configureLayout() { }
     
     private func configureDefaultUI() {
         view.backgroundColor = .systemBackground

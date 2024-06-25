@@ -28,12 +28,10 @@ final class TrendingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigation()
-        configureLayout()
         callGenreRequest()
     }
     
-    private func configureNavigation() {
+    override func configureNavigation() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "list.triangle")
         )
@@ -45,7 +43,7 @@ final class TrendingViewController: BaseViewController {
         )
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         [tableView].forEach { view.addSubview($0) }
         
         let safeArea = view.safeAreaLayoutGuide

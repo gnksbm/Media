@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-final class CreditTVCastCell: UITableViewCell {
+final class CreditTVCastCell: BaseTableViewCell {
     private let profileImageView = UIImageView().build { builder in
         builder.contentMode(.scaleAspectFill)
             .clipsToBounds(true)
@@ -27,23 +27,13 @@ final class CreditTVCastCell: UITableViewCell {
             .textColor(.tertiaryLabel)
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureUI()
-        configureLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     func configureCell(data: CreditResponse.Cast) {
         profileImageView.kf.setImage(with: data.imageEndpoint)
         nameLabel.text = data.name
         descriptionLabel.text = data.description
     }
     
-    private func configureUI() {
+    override func configureLayout() {
         [profileImageView, nameLabel, descriptionLabel].forEach {
             contentView.addSubview($0)
         }
@@ -66,10 +56,6 @@ final class CreditTVCastCell: UITableViewCell {
             make.horizontalEdges.equalTo(nameLabel)
             make.top.equalTo(contentView.snp.centerY).offset(5)
         }
-    }
-    
-    private func configureLayout() {
-        
     }
 }
 

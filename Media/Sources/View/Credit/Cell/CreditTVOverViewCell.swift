@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class CreditTVOverViewCell: UITableViewCell {
+final class CreditTVOverViewCell: BaseTableViewCell {
     var expandHandler: (UILabel) -> Void = { _ in }
     
     private let descriptionLabel = UILabel().build { builder in
@@ -27,15 +27,6 @@ final class CreditTVOverViewCell: UITableViewCell {
             )
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     func configureCell(
         data: (description: String, isExpanded: Bool)
     ) {
@@ -43,7 +34,7 @@ final class CreditTVOverViewCell: UITableViewCell {
         updateExpand(isExpanded: data.isExpanded)
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         [descriptionLabel, expandButton].forEach { contentView.addSubview($0) }
         
         descriptionLabel.snp.makeConstraints { make in

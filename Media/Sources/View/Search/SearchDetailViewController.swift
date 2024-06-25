@@ -30,13 +30,11 @@ final class SearchDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLayout()
-        configureNavigation()
         configureDataSource()
         callRequest()
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         [collectionView].forEach { view.addSubview($0) }
         
         let safeArea = view.safeAreaLayoutGuide
@@ -46,7 +44,7 @@ final class SearchDetailViewController: BaseViewController {
         }
     }
     
-    private func configureNavigation() {
+    override func configureNavigation() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "ellipsis.circle")
         )

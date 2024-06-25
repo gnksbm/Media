@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-final class TrendingCardView: UIView {
+final class TrendingCardView: BaseView {
     private let mainImageView = UIImageView().build { builder in
         builder.contentMode(.scaleAspectFill)
             .backgroundColor(.tertiarySystemFill)
@@ -79,16 +79,6 @@ final class TrendingCardView: UIView {
             )
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureUI()
-        configureLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         detailButton.titleLabel?.numberOfLines = 1
@@ -110,13 +100,13 @@ final class TrendingCardView: UIView {
         descriptionLabel.text = data.overview
     }
     
-    private func configureUI() {
+    override func configureUI() {
         backgroundColor = .systemBackground
         clipsToBounds = true
         layer.cornerRadius = 20
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         [
             mainImageView,
             clipboardButton,

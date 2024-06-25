@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class TrendingTableViewCell: UITableViewCell {
+final class TrendingTableViewCell: BaseTableViewCell {
     private let dateLabel = UILabel().build { builder in
         builder.textColor(.secondaryLabel)
     }
@@ -29,16 +29,6 @@ final class TrendingTableViewCell: UITableViewCell {
     
     private let cardView = TrendingCardView()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureUI()
-        configureLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
     }
@@ -49,11 +39,11 @@ final class TrendingTableViewCell: UITableViewCell {
         cardView.configureView(data: data)
     }
     
-    private func configureUI() {
+    override func configureUI() {
         selectionStyle = .none
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         [
             dateLabel,
             genreLabel,

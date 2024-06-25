@@ -9,21 +9,12 @@ import UIKit
 
 import SnapKit
 
-final class SearchDetailHeaderView: UICollectionReusableView {
+final class SearchDetailHeaderView: BaseCollectionViewReusableView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .heavy)
         return label
     }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -34,7 +25,7 @@ final class SearchDetailHeaderView: UICollectionReusableView {
         titleLabel.text = title
     }
     
-    private func configureUI() {
+    override func configureLayout() {
         [titleLabel].forEach { addSubview($0) }
         
         titleLabel.snp.makeConstraints { make in
