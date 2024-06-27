@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MediaTrendRequest {
+struct TrendingRequest {
     let trendType: MediaType
     let timeWindow: TimeWindow
     
@@ -20,7 +20,7 @@ struct MediaTrendRequest {
     }
 }
 
-extension MediaTrendRequest {
+extension TrendingRequest {
     enum MediaType: String, CaseIterable {
         case all, movie, tv, person
     }

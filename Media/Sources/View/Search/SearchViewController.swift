@@ -92,14 +92,12 @@ final class SearchViewController: BaseViewController {
         guard let searchTerm = searchBar.text,
               searchTerm.isNotEmpty
         else { return }
-        NetworkService.request(
-            endpoint: SearchEndpoint(
-                request: SearchRequest(
-                    query: searchTerm,
-                    page: page
-                )
+        SearchRepository.callRequest(
+            request: SearchRequest(
+                query: searchTerm,
+                page: page
             )
-        ) { (response: SearchResponse) in
+        ) { response in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 let newResults = searchResult.results + response.results

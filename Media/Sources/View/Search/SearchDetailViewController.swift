@@ -54,13 +54,11 @@ final class SearchDetailViewController: BaseViewController {
         let group = DispatchGroup()
         var itemDic = [CollectionViewSection: [ImageEndpoint]]()
         group.enter()
-        NetworkService.request(
-            endpoint: SimilarEndpoint(
-                request: SimilarRequest(
-                    movieID: movieID
-                )
+        SimilarRepository.callRequest(
+            request: SimilarRequest(
+                movieID: movieID
             )
-        ) { (response: SimilarResponse) in
+        ) { response in
             itemDic[.similar] = response.imageEndpoints
             group.leave()
         } errorHandler: { error in
@@ -68,13 +66,11 @@ final class SearchDetailViewController: BaseViewController {
             group.leave()
         }
         group.enter()
-        NetworkService.request(
-            endpoint: RecommendEndpoint(
-                request: RecommendRequest(
-                    movieID: movieID
-                )
+        RecommendRepository.callRequest(
+            request: RecommendRequest(
+                movieID: movieID
             )
-        ) { (response: RecommendResponse) in
+        ) { response in
             itemDic[.recommend] = response.imageEndpoints
             group.leave()
         } errorHandler: { error in
@@ -82,13 +78,11 @@ final class SearchDetailViewController: BaseViewController {
             group.leave()
         }
         group.enter()
-        NetworkService.request(
-            endpoint: PosterEndpoint(
-                request: PosterRequest(
-                    movieID: movieID
-                )
+        PosterRepository.callRequest(
+            request: PosterRequest(
+                movieID: movieID
             )
-        ) { (response: PosterResponse) in
+        ) { response in
             itemDic[.poster] = response.imageEndpoints
             group.leave()
         } errorHandler: { error in
@@ -102,13 +96,11 @@ final class SearchDetailViewController: BaseViewController {
     
     @available(*, deprecated, renamed: "callRequest")
     private func callSimilarRequest() {
-        NetworkService.request(
-            endpoint: SimilarEndpoint(
-                request: SimilarRequest(
-                    movieID: movieID
-                )
+        SimilarRepository.callRequest(
+            request: SimilarRequest(
+                movieID: movieID
             )
-        ) { (response: SimilarResponse) in
+        ) { response in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 updateSnapshot(
@@ -123,13 +115,11 @@ final class SearchDetailViewController: BaseViewController {
     
     @available(*, deprecated, renamed: "callRequest")
     private func callRecommendRequest() {
-        NetworkService.request(
-            endpoint: RecommendEndpoint(
-                request: RecommendRequest(
-                    movieID: movieID
-                )
+        RecommendRepository.callRequest(
+            request: RecommendRequest(
+                movieID: movieID
             )
-        ) { (response: RecommendResponse) in
+        ) { response in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 updateSnapshot(
@@ -144,13 +134,11 @@ final class SearchDetailViewController: BaseViewController {
     
     @available(*, deprecated, renamed: "callRequest")
     private func callPosterRequest() {
-        NetworkService.request(
-            endpoint: PosterEndpoint(
-                request: PosterRequest(
-                    movieID: movieID
-                )
+        PosterRepository.callRequest(
+            request: PosterRequest(
+                movieID: movieID
             )
-        ) { (response: PosterResponse) in
+        ) { response in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 updateSnapshot(

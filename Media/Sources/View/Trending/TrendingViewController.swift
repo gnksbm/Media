@@ -52,9 +52,7 @@ final class TrendingViewController: BaseViewController {
     }
     
     private func callGenreRequest() {
-        NetworkService.request(
-            endpoint: GenreEndpoint()
-        ) { (response: GenreResponse) in
+        GenreRepository.callRequest { response in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 genreDic = response.toDic
@@ -66,13 +64,11 @@ final class TrendingViewController: BaseViewController {
     }
     
     private func callTrendingRequest() {
-        NetworkService.request(
-            endpoint: MediaTrendEndpoint(
-                request: MediaTrendRequest(
-                    trendType: .all
-                )
+        TrendingRepository.callRequest(
+            request: TrendingRequest(
+                trendType: .all
             )
-        ) { (response: TrendingResponse) in
+        ) { response in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 dataList = response.results

@@ -55,14 +55,12 @@ class CreditViewController: BaseViewController {
     }
     
     func callCreditRequest(data: TrendingResponse.Trending) {
-        NetworkService.request(
-            endpoint: CreditEndpoint(
-                request: CreditRequest(
-                    mediaType: data.mediaType,
-                    creditID: data.id
-                )
+        CreditRepository.callRequest(
+            request: CreditRequest(
+                mediaType: data.mediaType,
+                creditID: data.id
             )
-        ) { (response: CreditResponse) in
+        ) { response in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 overView = (data.overview, false)
