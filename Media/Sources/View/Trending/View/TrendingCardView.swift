@@ -17,15 +17,16 @@ final class TrendingCardView: BaseView {
     }
     
     private let clipboardButton = UIButton().build { builder in
-        builder.configuration(.bordered())
-            .configuration(\.baseBackgroundColor)(.systemBackground)
-            .configuration(\.baseForegroundColor)(.label)
-            .configuration(\.image)(UIImage(systemName: "paperclip"))
-            .configuration(\.preferredSymbolConfigurationForImage)(
+        builder
+            .configuration(.bordered())
+            .configuration.baseBackgroundColor(.systemBackground)
+            .configuration.baseForegroundColor(.label)
+            .configuration.image(UIImage(systemName: "paperclip"))
+            .configuration.preferredSymbolConfigurationForImage(
                 UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 16))
             )
-            .configuration(\.cornerStyle)(.capsule)
-            .configuration(\.titlePadding)(.zero)
+            .configuration.cornerStyle(.capsule)
+            .configuration.titlePadding(.zero)
     }
     
     private let gradeDescriptionLabel = PaddingLabelView(
@@ -66,17 +67,19 @@ final class TrendingCardView: BaseView {
     
     private let detailButton = UIButton().build { builder in
         builder.configuration(.borderless())
-            .configuration(\.baseBackgroundColor)(.systemBackground)
-            .configuration(\.baseForegroundColor)(.label)
-            .configuration(\.image)(UIImage(systemName: "chevron.right"))
-            .configuration(\.imagePlacement)(.trailing)
-            .configuration(\.cornerStyle)(.capsule)
-            .configuration(\.titlePadding)(.zero)
-            .attributedTitle(
-                "자세히 보기",
-                attributes: [
-                    .font : UIFont.systemFont(ofSize: 15)
-                ]
+            .configuration.baseBackgroundColor(.systemBackground)
+            .configuration.baseForegroundColor(.label)
+            .configuration.image(UIImage(systemName: "chevron.right"))
+            .configuration.imagePlacement(.trailing)
+            .configuration.cornerStyle(.capsule)
+            .configuration.titlePadding(.zero)
+            .configuration.attributedTitle(
+                AttributedString(
+                    "자세히 보기",
+                    attributes: AttributeContainer([
+                        .font : UIFont.systemFont(ofSize: 15)
+                    ])
+                )
             )
     }
     

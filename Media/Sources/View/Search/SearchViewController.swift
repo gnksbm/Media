@@ -90,7 +90,7 @@ final class SearchViewController: BaseViewController {
     
     private func callSearchRequest() {
         guard let searchTerm = searchBar.text,
-              !searchTerm.isEmpty
+              searchTerm.isNotEmpty
         else { return }
         NetworkService.request(
             endpoint: SearchEndpoint(
@@ -165,9 +165,9 @@ extension SearchViewController: UICollectionViewDataSource {
             SearchCollectionViewCell.self,
             indexPath: indexPath
         ).build { builder in
-            builder.capture {
+            builder.action { base in
                 let data = searchResult.results[indexPath.row]
-                $0.configureCell(data: data)
+                base.configureCell(data: data)
             }
         }
     }

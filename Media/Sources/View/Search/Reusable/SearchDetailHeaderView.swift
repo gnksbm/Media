@@ -10,11 +10,9 @@ import UIKit
 import SnapKit
 
 final class SearchDetailHeaderView: BaseCollectionViewReusableView {
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 22, weight: .heavy)
-        return label
-    }()
+    private let titleLabel = UILabel().build { builder in
+        builder.font(.systemFont(ofSize: 22, weight: .heavy))
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
