@@ -8,17 +8,11 @@
 import Foundation
 
 struct SearchEndpoint: TMDBEndpoint {
-    let query: String
-    let page: Int
+    let request: SearchRequest
     
-    var httpMethod: HTTPMethod { .get }
-    
-    var path: String { "/3/search/movie" }
+    var path: String { "/search/movie" }
     
     var queries: [String : String]? {
-        [
-            "query": query,
-            "page": "\(page)",
-        ].withTMDBAPIKey()
+        .toStringDictionary(request).withTMDBAPIKey()
     }
 }

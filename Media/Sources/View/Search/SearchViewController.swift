@@ -94,8 +94,10 @@ final class SearchViewController: BaseViewController {
         else { return }
         NetworkService.request(
             endpoint: SearchEndpoint(
-                query: searchTerm,
-                page: page
+                request: SearchRequest(
+                    query: searchTerm,
+                    page: page
+                )
             )
         ) { (response: SearchResponse) in
             DispatchQueue.main.async { [weak self] in

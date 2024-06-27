@@ -8,17 +8,13 @@
 import Foundation
 
 struct SimilarEndpoint: TMDBEndpoint {
-    let movieID: Int
+    let request: SimilarRequest
     
-    var httpMethod: HTTPMethod { .get }
-    var path: String { "/3/movie/\(movieID)/similar" }
-    var header: [String : String]? {
-        ["Content-Type": "application/json"]
-    }
+    var path: String { "/movie/\(request.movieID)/similar" }
     var queries: [String : String]? {
-        [
-            "language": "en-US",
-            "page": "1"
-        ].withTMDBAPIKey()
+        var dic = Dictionary.toStringDictionary(request)
+        .withTMDBAPIKey()
+        _ = dic.removeValue(forKey: "movieID")
+        return dic
     }
 }

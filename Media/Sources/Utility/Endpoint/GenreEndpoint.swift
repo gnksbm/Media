@@ -8,13 +8,14 @@
 import Foundation
 
 struct GenreEndpoint: TMDBEndpoint {
-    var httpMethod: HTTPMethod { .get }
+    let request: GenreRequest
     
-    var path: String { "/3/genre/movie/list" }
-    
+    var path: String { "/genre/movie/list" }
     var queries: [String : String]? {
-        [
-            "language": "ko"
-        ].withTMDBAPIKey()
+        .toStringDictionary(request).withTMDBAPIKey()
+    }
+    
+    init(request: GenreRequest = GenreRequest()) {
+        self.request = request
     }
 }

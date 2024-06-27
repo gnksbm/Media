@@ -8,12 +8,8 @@
 import Foundation
 
 struct PosterEndpoint: TMDBEndpoint {
-    let movieID: Int
+    let request: PosterRequest
     
-    var httpMethod: HTTPMethod { .get }
-    var path: String { "/3/movie/\(movieID)/images" }
-    var header: [String : String]? {
-        ["Content-Type": "application/json"]
-    }
+    var path: String { "/movie/\(request.movieID)/images" }
     var queries: [String : String]? { .tmdbAPIKey }
 }

@@ -67,7 +67,11 @@ final class TrendingViewController: BaseViewController {
     
     private func callTrendingRequest() {
         NetworkService.request(
-            endpoint: MediaTrendEndpoint(trendType: .all)
+            endpoint: MediaTrendEndpoint(
+                request: MediaTrendRequest(
+                    trendType: .all
+                )
+            )
         ) { (response: TrendingResponse) in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }

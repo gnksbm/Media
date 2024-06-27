@@ -8,12 +8,11 @@
 import Foundation
 
 struct CreditEndpoint: TMDBEndpoint {
-    let mediaType: TrendingResponse.MediaType
-    let creditID: Int
+    let request: CreditRequest
     
-    var httpMethod: HTTPMethod { .get }
-    
-    var path: String { "/3/\(mediaType.rawValue)/\(creditID)/credits" }
+    var path: String {
+        "/\(request.mediaType.rawValue)/\(request.creditID)/credits"
+    }
     
     var queries: [String : String]? { .tmdbAPIKey }
 }

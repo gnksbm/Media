@@ -8,17 +8,13 @@
 import Foundation
 
 struct RecommendEndpoint: TMDBEndpoint {
-    let movieID: Int
+    let request: RecommendRequest
     
-    var httpMethod: HTTPMethod { .get }
-    var path: String { "/3/movie/\(movieID)/recommendations" }
-    var header: [String : String]? {
-        ["Content-Type": "application/json"]
-    }
+    var path: String { "/movie/\(request.movieID)/recommendations" }
     var queries: [String : String]? {
-        [
-            "language": "en-US",
-            "page": "1"
-        ].withTMDBAPIKey()
+        var dic = Dictionary.toStringDictionary(request)
+        .withTMDBAPIKey()
+        _ = dic.removeValue(forKey: "movieID")
+        return dic
     }
 }

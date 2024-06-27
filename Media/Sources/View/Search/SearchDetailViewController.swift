@@ -55,7 +55,11 @@ final class SearchDetailViewController: BaseViewController {
         var itemDic = [CollectionViewSection: [ImageEndpoint]]()
         group.enter()
         NetworkService.request(
-            endpoint: SimilarEndpoint(movieID: movieID)
+            endpoint: SimilarEndpoint(
+                request: SimilarRequest(
+                    movieID: movieID
+                )
+            )
         ) { (response: SimilarResponse) in
             itemDic[.similar] = response.imageEndpoints
             group.leave()
@@ -65,7 +69,11 @@ final class SearchDetailViewController: BaseViewController {
         }
         group.enter()
         NetworkService.request(
-            endpoint: RecommendEndpoint(movieID: movieID)
+            endpoint: RecommendEndpoint(
+                request: RecommendRequest(
+                    movieID: movieID
+                )
+            )
         ) { (response: RecommendResponse) in
             itemDic[.recommend] = response.imageEndpoints
             group.leave()
@@ -75,7 +83,11 @@ final class SearchDetailViewController: BaseViewController {
         }
         group.enter()
         NetworkService.request(
-            endpoint: PosterEndpoint(movieID: movieID)
+            endpoint: PosterEndpoint(
+                request: PosterRequest(
+                    movieID: movieID
+                )
+            )
         ) { (response: PosterResponse) in
             itemDic[.poster] = response.imageEndpoints
             group.leave()
@@ -91,7 +103,11 @@ final class SearchDetailViewController: BaseViewController {
     @available(*, deprecated, renamed: "callRequest")
     private func callSimilarRequest() {
         NetworkService.request(
-            endpoint: SimilarEndpoint(movieID: movieID)
+            endpoint: SimilarEndpoint(
+                request: SimilarRequest(
+                    movieID: movieID
+                )
+            )
         ) { (response: SimilarResponse) in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
@@ -108,7 +124,11 @@ final class SearchDetailViewController: BaseViewController {
     @available(*, deprecated, renamed: "callRequest")
     private func callRecommendRequest() {
         NetworkService.request(
-            endpoint: RecommendEndpoint(movieID: movieID)
+            endpoint: RecommendEndpoint(
+                request: RecommendRequest(
+                    movieID: movieID
+                )
+            )
         ) { (response: RecommendResponse) in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
@@ -125,7 +145,11 @@ final class SearchDetailViewController: BaseViewController {
     @available(*, deprecated, renamed: "callRequest")
     private func callPosterRequest() {
         NetworkService.request(
-            endpoint: PosterEndpoint(movieID: movieID)
+            endpoint: PosterEndpoint(
+                request: PosterRequest(
+                    movieID: movieID
+                )
+            )
         ) { (response: PosterResponse) in
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
