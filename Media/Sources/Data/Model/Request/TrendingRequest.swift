@@ -12,10 +12,10 @@ struct TrendingRequest {
     let timeWindow: TimeWindow
     
     init(
-        trendType: MediaType,
+        mediaType: MediaType,
         timeWindow: TimeWindow = .day
     ) {
-        self.trendType = trendType
+        self.trendType = mediaType
         self.timeWindow = timeWindow
     }
 }
@@ -23,6 +23,19 @@ struct TrendingRequest {
 extension TrendingRequest {
     enum MediaType: String, CaseIterable {
         case all, movie, tv, person
+        
+        var title: String {
+            switch self {
+            case .all:
+                "전체보기"
+            case .movie:
+                "영화"
+            case .tv:
+                "TV"
+            case .person:
+                "사람"
+            }
+        }
     }
     
     enum TimeWindow: String {

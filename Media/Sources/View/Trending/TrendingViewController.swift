@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 final class TrendingViewController: BaseViewController {
+    private var mediaType: TrendingRequest.MediaType = .all
+    
     private var dataList = [TrendingResponse.Trending]() {
         didSet {
             tableView.reloadData()
@@ -31,7 +33,15 @@ final class TrendingViewController: BaseViewController {
     
     override func configureNavigation() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "list.triangle")
+            image: UIImage(systemName: "list.triangle"),
+            menu: UIMenu(
+                children: TrendingRequest.MediaType.allCases.map { type in
+                    UIAction(title: type.title) { _ in
+                        self.mediaType = type
+                        self.callTrendingRequest()
+                    }
+                }
+            )
         )
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "magnifyingglass"),
@@ -66,7 +76,7 @@ final class TrendingViewController: BaseViewController {
     private func callTrendingRequest() {
         TrendingRepository.callRequest(
             request: TrendingRequest(
-                trendType: .all
+                mediaType: mediaType
             )
         ) { response in
             DispatchQueue.main.async { [weak self] in
