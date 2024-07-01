@@ -60,8 +60,10 @@ final class AnyDataRequest<T: Decodable> {
         return self
     }
     
-    func onProgress(_ action: @escaping (Double) -> Void) {
+    @discardableResult
+    func onProgress(_ action: @escaping (Double) -> Void) -> Self {
         progressEvent = action
+        return self
     }
     
     func cancel() {
@@ -98,7 +100,12 @@ extension AnyDataRequest: DataRequest {
                     let result = try JSONDecoder().decode(T.self, from: data)
                     self.onNextEvent?(result)
                 } catch {
-                    didReceive(error: error)
+                    didReceive(
+                        error: NetworkError.decodingError(
+                            type: T.self,
+                            error: error
+                        )
+                    )
                 }
             }
         }
@@ -107,6 +114,7 @@ extension AnyDataRequest: DataRequest {
     
     func didReceive(error: Error) {
         onErrorEvent?(error)
+        dump(error)
     }
     
     func finish() {

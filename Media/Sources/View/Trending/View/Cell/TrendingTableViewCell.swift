@@ -10,12 +10,32 @@ import UIKit
 import SnapKit
 
 final class TrendingTableViewCell: BaseTableViewCell {
+    var videoURL: URL?
+    var videoButtonHandler: ((URL?) -> Void)?
+    private var dataRequest: AnyDataRequest<VideoResponse>?
+    
     private let dateLabel = UILabel().build { builder in
         builder.textColor(.secondaryLabel)
     }
     
     private let genreLabel = UILabel().build { builder in
         builder.font(.systemFont(ofSize: 22, weight: .heavy))
+    }
+    
+    private lazy var videoButton = UIButton().build { builder in
+        builder.configuration(.plain())
+            .configuration.image(
+                UIImage(systemName: "video.circle")
+            )
+            .configuration.baseForegroundColor(.red)
+            .configuration.preferredSymbolConfigurationForImage(
+                UIImage.SymbolConfiguration(pointSize: 22)
+            )
+            .addTarget(
+                self,
+                action: #selector(videoButtonTapped),
+                for: .touchUpInside
+            )
     }
     
     private lazy var cardShadowView = UIView().build { builder in
@@ -31,12 +51,32 @@ final class TrendingTableViewCell: BaseTableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        dataRequest?.cancel()
+        videoButtonHandler = nil
     }
     
     func configureCell(data: TrendingResponse.Trending, genre: String?) {
         dateLabel.text = data.visibleDate
         genreLabel.text = "#\(genre ?? "")"
         cardView.configureView(data: data)
+        
+        dataRequest = VideoRepository.callRequest(
+            request: VideoRequest(
+                seriesID: "\(data.id)",
+                mediaType: data.mediaType
+            ),
+            onNext: {
+                [weak self] response in
+                guard let self else { return }
+                videoURL = response.youtubeURL
+                videoButton.isEnabled = true
+            },
+            onError: { [weak self] error in
+                guard let self else { return }
+                videoURL = nil
+                videoButton.isEnabled = false
+            }
+        )
     }
     
     override func configureUI() {
@@ -48,6 +88,7 @@ final class TrendingTableViewCell: BaseTableViewCell {
             dateLabel,
             genreLabel,
             cardShadowView,
+            videoButton
         ].forEach { contentView.addSubview($0) }
         
         cardShadowView.addSubview(cardView)
@@ -62,6 +103,12 @@ final class TrendingTableViewCell: BaseTableViewCell {
             make.leading.trailing.equalTo(dateLabel)
         }
         
+        videoButton.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel)
+            make.trailing.equalTo(contentView).inset(20)
+            make.bottom.equalTo(genreLabel)
+        }
+        
         cardShadowView.snp.makeConstraints { make in
             make.top.equalTo(genreLabel.snp.bottom).offset(10)
             make.centerX.equalTo(contentView)
@@ -72,6 +119,10 @@ final class TrendingTableViewCell: BaseTableViewCell {
         cardView.snp.makeConstraints { make in
             make.edges.equalTo(cardShadowView).inset(20)
         }
+    }
+    
+    @objc func videoButtonTapped() {
+        videoButtonHandler?(videoURL)
     }
 }
 

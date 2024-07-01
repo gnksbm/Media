@@ -10,6 +10,13 @@
 		8E013DF82C32AE8F00557FC0 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DF72C32AE8F00557FC0 /* DataRequest.swift */; };
 		8E013DFA2C32AF3A00557FC0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DF92C32AF3A00557FC0 /* NetworkError.swift */; };
 		8E013DFC2C32D71C00557FC0 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DFB2C32D71C00557FC0 /* ToastView.swift */; };
+		8E013DFE2C32D88D00557FC0 /* VideoEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DFD2C32D88D00557FC0 /* VideoEndpoint.swift */; };
+		8E013E002C32D8D900557FC0 /* VideoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DFF2C32D8D900557FC0 /* VideoRequest.swift */; };
+		8E013E022C32D91600557FC0 /* VideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013E012C32D91600557FC0 /* VideoResponse.swift */; };
+		8E013E042C32D98900557FC0 /* YouTubeWatchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013E032C32D98900557FC0 /* YouTubeWatchEndpoint.swift */; };
+		8E013E082C32D9F900557FC0 /* YouTubeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013E072C32D9F900557FC0 /* YouTubeEndpoint.swift */; };
+		8E013E0A2C32DBD700557FC0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013E092C32DBD700557FC0 /* WebViewController.swift */; };
+		8E013E0C2C32DD0000557FC0 /* VideoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013E0B2C32DD0000557FC0 /* VideoRepository.swift */; };
 		8EDCB8B32C295DCE006F7851 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B22C295DCE006F7851 /* String+.swift */; };
 		8EDCB8B62C295FE9006F7851 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */; };
 		8EDCB8BC2C296246006F7851 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8BB2C296246006F7851 /* NetworkService.swift */; };
@@ -91,6 +98,13 @@
 		8E013DF72C32AE8F00557FC0 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		8E013DF92C32AF3A00557FC0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		8E013DFB2C32D71C00557FC0 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		8E013DFD2C32D88D00557FC0 /* VideoEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEndpoint.swift; sourceTree = "<group>"; };
+		8E013DFF2C32D8D900557FC0 /* VideoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRequest.swift; sourceTree = "<group>"; };
+		8E013E012C32D91600557FC0 /* VideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResponse.swift; sourceTree = "<group>"; };
+		8E013E032C32D98900557FC0 /* YouTubeWatchEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeWatchEndpoint.swift; sourceTree = "<group>"; };
+		8E013E072C32D9F900557FC0 /* YouTubeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeEndpoint.swift; sourceTree = "<group>"; };
+		8E013E092C32DBD700557FC0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		8E013E0B2C32DD0000557FC0 /* VideoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRepository.swift; sourceTree = "<group>"; };
 		8EDCB8B22C295DCE006F7851 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8EDCB8BB2C296246006F7851 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -191,6 +205,32 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		8E013E052C32D9C800557FC0 /* TMDB */ = {
+			isa = PBXGroup;
+			children = (
+				BE77C14C2C172270008EADA1 /* TMDBEndpoint.swift */,
+				BE1482382C18501000B7C62C /* SearchEndpoint.swift */,
+				BEE629332C16DE40009E1884 /* TrendingEndpoint.swift */,
+				BE77C1502C172485008EADA1 /* GenreEndpoint.swift */,
+				BE77C1552C1725CF008EADA1 /* CreditEndpoint.swift */,
+				8EDCB8C42C29A3F9006F7851 /* SimilarEndpoint.swift */,
+				8EDCB8C82C29C295006F7851 /* RecommendEndpoint.swift */,
+				8EDCB8CA2C29C29B006F7851 /* PosterEndpoint.swift */,
+				8E013DFD2C32D88D00557FC0 /* VideoEndpoint.swift */,
+				BE77C1662C17373C008EADA1 /* ImageEndpoint.swift */,
+			);
+			path = TMDB;
+			sourceTree = "<group>";
+		};
+		8E013E062C32D9F200557FC0 /* YouTubeEndpoint */ = {
+			isa = PBXGroup;
+			children = (
+				8E013E032C32D98900557FC0 /* YouTubeWatchEndpoint.swift */,
+				8E013E072C32D9F900557FC0 /* YouTubeEndpoint.swift */,
+			);
+			path = YouTubeEndpoint;
+			sourceTree = "<group>";
+		};
 		8EDCB8B42C295FDF006F7851 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +282,7 @@
 			children = (
 				BE1482342C18432C00B7C62C /* SearchViewController.swift */,
 				8EDCB8BF2C299B10006F7851 /* SearchDetailViewController.swift */,
+				8E013E092C32DBD700557FC0 /* WebViewController.swift */,
 				8EDCB8C12C29A059006F7851 /* Reusable */,
 			);
 			path = Search;
@@ -269,6 +310,7 @@
 				8EDCB8C62C29A759006F7851 /* SimilarResponse.swift */,
 				8EDCB8CE2C29C4C5006F7851 /* RecommendResponse.swift */,
 				8EDCB8CC2C29C2F2006F7851 /* PosterResponse.swift */,
+				8E013E012C32D91600557FC0 /* VideoResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -283,6 +325,7 @@
 				BE76B3552C2D848800CEE3BA /* CreditRequest.swift */,
 				BE76B3572C2D859D00CEE3BA /* SimilarRequest.swift */,
 				BE76B3592C2D8B7A00CEE3BA /* RecommendRequest.swift */,
+				8E013DFF2C32D8D900557FC0 /* VideoRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -306,6 +349,7 @@
 				BE76B3672C2D8FF500CEE3BA /* CreditRepository.swift */,
 				BE76B3692C2D901200CEE3BA /* SimilarRepository.swift */,
 				BE76B36B2C2D904A00CEE3BA /* RecommendRepository.swift */,
+				8E013E0B2C32DD0000557FC0 /* VideoRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -438,15 +482,8 @@
 		BEE6292E2C16DD58009E1884 /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
-				BE77C14C2C172270008EADA1 /* TMDBEndpoint.swift */,
-				BE1482382C18501000B7C62C /* SearchEndpoint.swift */,
-				BEE629332C16DE40009E1884 /* TrendingEndpoint.swift */,
-				BE77C1662C17373C008EADA1 /* ImageEndpoint.swift */,
-				BE77C1502C172485008EADA1 /* GenreEndpoint.swift */,
-				BE77C1552C1725CF008EADA1 /* CreditEndpoint.swift */,
-				8EDCB8C42C29A3F9006F7851 /* SimilarEndpoint.swift */,
-				8EDCB8C82C29C295006F7851 /* RecommendEndpoint.swift */,
-				8EDCB8CA2C29C29B006F7851 /* PosterEndpoint.swift */,
+				8E013E052C32D9C800557FC0 /* TMDB */,
+				8E013E062C32D9F200557FC0 /* YouTubeEndpoint */,
 				BEE6293B2C16E9F5009E1884 /* Protocol */,
 			);
 			path = Endpoint;
@@ -568,9 +605,14 @@
 				BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */,
 				BE77C1492C17076C008EADA1 /* DateFormat.swift in Sources */,
 				8E013DFC2C32D71C00557FC0 /* ToastView.swift in Sources */,
+				8E013E022C32D91600557FC0 /* VideoResponse.swift in Sources */,
 				8E013DFA2C32AF3A00557FC0 /* NetworkError.swift in Sources */,
 				BE77C14B2C171150008EADA1 /* PaddingLabelView.swift in Sources */,
+				8E013E042C32D98900557FC0 /* YouTubeWatchEndpoint.swift in Sources */,
+				8E013E082C32D9F900557FC0 /* YouTubeEndpoint.swift in Sources */,
+				8E013E002C32D8D900557FC0 /* VideoRequest.swift in Sources */,
 				8EDCB8CB2C29C29B006F7851 /* PosterEndpoint.swift in Sources */,
+				8E013E0A2C32DBD700557FC0 /* WebViewController.swift in Sources */,
 				BE76B3562C2D848800CEE3BA /* CreditRequest.swift in Sources */,
 				8EDCB8B32C295DCE006F7851 /* String+.swift in Sources */,
 				BE76B3342C2AD12100CEE3BA /* Collection+.swift in Sources */,
@@ -586,6 +628,7 @@
 				BE1482392C18501000B7C62C /* SearchEndpoint.swift in Sources */,
 				BEE6293D2C16F0C2009E1884 /* UIKitPreview.swift in Sources */,
 				8EDCB8D12C29C54D006F7851 /* SearchDetailViewCVCell.swift in Sources */,
+				8E013E0C2C32DD0000557FC0 /* VideoRepository.swift in Sources */,
 				BE1482372C184A0C00B7C62C /* SearchCollectionViewCell.swift in Sources */,
 				8EDCB8C32C29A07C006F7851 /* SearchDetailHeaderView.swift in Sources */,
 				BE77C1692C174BE3008EADA1 /* UIViewController+.swift in Sources */,
@@ -604,6 +647,7 @@
 				8EDCB8CD2C29C2F2006F7851 /* PosterResponse.swift in Sources */,
 				BE76B34C2C2D5BC500CEE3BA /* SearchRequest.swift in Sources */,
 				BE76B3682C2D8FF500CEE3BA /* CreditRepository.swift in Sources */,
+				8E013DFE2C32D88D00557FC0 /* VideoEndpoint.swift in Sources */,
 				8EDCB8BC2C296246006F7851 /* NetworkService.swift in Sources */,
 				BEC8B2D32C16CCF00009F325 /* SceneDelegate.swift in Sources */,
 				BE76B3542C2D847500CEE3BA /* GenreRequest.swift in Sources */,

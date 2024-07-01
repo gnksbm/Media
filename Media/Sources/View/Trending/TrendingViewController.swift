@@ -146,6 +146,17 @@ extension TrendingViewController: UITableViewDataSource {
         let data = dataList[indexPath.row]
         let genre = genreDic[data.genreID ?? 0]
         cell.configureCell(data: data, genre: genre)
+        cell.videoButtonHandler = { [weak self] url in
+            guard let self else { return }
+            if let url {
+                navigationController?.pushViewController(
+                    WebViewController(url: url),
+                    animated: true
+                )
+            } else {
+                showToast(message: "영상을 찾을 수 없습니다")
+            }
+        }
         return cell
     }
 }

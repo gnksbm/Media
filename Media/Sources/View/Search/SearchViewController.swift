@@ -153,9 +153,12 @@ extension SearchViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let movieID = searchResult.results[indexPath.row].id
+        let movie = searchResult.results[indexPath.row]
+        
         navigationController?.pushViewController(
-            SearchDetailViewController(movieID: movieID),
+            SearchDetailViewController(movieID: movie.id).build{ builder in
+                builder.navigationItem.title(movie.title)
+            },
             animated: true
         )
     }
