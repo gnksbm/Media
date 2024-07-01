@@ -59,18 +59,20 @@ class CreditViewController: BaseViewController {
             request: CreditRequest(
                 mediaType: data.mediaType,
                 creditID: data.id
-            )
-        ) { response in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                overView = (data.overview, false)
-                tableViewHeaderView.setImage(with: data.imageEndpoint)
-                castList = response.cast
-                crewList = response.crew
+            ),
+            onNext: { response in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    overView = (data.overview, false)
+                    tableViewHeaderView.setImage(with: data.imageEndpoint)
+                    castList = response.cast
+                    crewList = response.crew
+                }
+            },
+            onError: { error in
+                dump(error)
             }
-        } errorHandler: { error in
-            dump(error)
-        }
+        )
     }
     
     override func configureNavigationTitle() {

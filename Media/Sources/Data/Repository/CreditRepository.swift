@@ -12,13 +12,18 @@ final class CreditRepository {
     
     static func callRequest(
         request: CreditRequest,
-        _ completionHandler: @escaping (CreditResponse) -> Void,
-        errorHandler: @escaping (Error) -> Void
+        onNext: @escaping (CreditResponse) -> Void,
+        onError: @escaping (Error) -> Void = { _ in },
+        onComplete: @escaping () -> Void = { }
     ) {
-        NetworkService.request(
-            endpoint: CreditEndpoint(request: request),
-            completionHandler,
-            errorHandler: errorHandler
+        NetworkService.shared.request(
+            endpoint: CreditEndpoint(request: request)
+        )
+        .decode(type: CreditResponse.self)
+        .receive(
+            onNext: onNext,
+            onError: onError,
+            onComplete: onComplete
         )
     }
 }

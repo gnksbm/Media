@@ -62,30 +62,35 @@ final class TrendingViewController: BaseViewController {
     }
     
     private func callGenreRequest() {
-        GenreRepository.callRequest { response in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                genreDic = response.toDic
-                callTrendingRequest()
+        GenreRepository.callRequest(
+            onNext: { response in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    genreDic = response.toDic
+                    callTrendingRequest()
+                }
+            },
+            onError: { error in
+                dump(error)
             }
-        } errorHandler: { error in
-            dump(error)
-        }
+        )
     }
     
     private func callTrendingRequest() {
         TrendingRepository.callRequest(
             request: TrendingRequest(
                 mediaType: mediaType
-            )
-        ) { response in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                dataList = response.results
+            ),
+            onNext: { response in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    dataList = response.results
+                }
+            },
+            onError: { error in
+                dump(error)
             }
-        } errorHandler: { error in
-            dump(error)
-        }
+        )
     }
     
     @objc private func searchButtonTapped() {

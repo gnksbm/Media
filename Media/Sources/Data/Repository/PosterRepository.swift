@@ -12,13 +12,18 @@ final class PosterRepository {
     
     static func callRequest(
         request: PosterRequest,
-        _ completionHandler: @escaping (PosterResponse) -> Void,
-        errorHandler: @escaping (Error) -> Void
+        onNext: @escaping (PosterResponse) -> Void,
+        onError: @escaping (Error) -> Void = { _ in },
+        onComplete: @escaping () -> Void = { }
     ) {
-        NetworkService.request(
-            endpoint: PosterEndpoint(request: request),
-            completionHandler,
-            errorHandler: errorHandler
+        NetworkService.shared.request(
+            endpoint: PosterEndpoint(request: request)
+        )
+        .decode(type: PosterResponse.self)
+        .receive(
+            onNext: onNext,
+            onError: onError,
+            onComplete: onComplete
         )
     }
 }

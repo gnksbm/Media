@@ -12,13 +12,18 @@ final class SearchRepository {
     
     static func callRequest(
         request: SearchRequest,
-        _ completionHandler: @escaping (SearchResponse) -> Void,
-        errorHandler: @escaping (Error) -> Void
+        onNext: @escaping (SearchResponse) -> Void,
+        onError: @escaping (Error) -> Void = { _ in },
+        onComplete: @escaping () -> Void = { }
     ) {
-        NetworkService.request(
-            endpoint: SearchEndpoint(request: request),
-            completionHandler,
-            errorHandler: errorHandler
+        NetworkService.shared.request(
+            endpoint: SearchEndpoint(request: request)
+        )
+        .decode(type: SearchResponse.self)
+        .receive(
+            onNext: onNext,
+            onError: onError,
+            onComplete: onComplete
         )
     }
 }

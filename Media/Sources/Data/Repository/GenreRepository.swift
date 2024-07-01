@@ -11,13 +11,18 @@ final class GenreRepository {
     private init() { }
     
     static func callRequest(
-        _ completionHandler: @escaping (GenreResponse) -> Void,
-        errorHandler: @escaping (Error) -> Void
+        onNext: @escaping (GenreResponse) -> Void,
+        onError: @escaping (Error) -> Void = { _ in },
+        onComplete: @escaping () -> Void = { }
     ) {
-        NetworkService.request(
-            endpoint: GenreEndpoint(),
-            completionHandler,
-            errorHandler: errorHandler
+        NetworkService.shared.request(
+            endpoint: GenreEndpoint()
+        )
+        .decode(type: GenreResponse.self)
+        .receive(
+            onNext: onNext,
+            onError: onError,
+            onComplete: onComplete
         )
     }
 }

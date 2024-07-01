@@ -8,44 +8,30 @@
 import UIKit
 
 extension UIImageView {
-    func setImage(with url: URL) {
+    func setImage(with url: URL) -> URLSessionTask? {
         @CacheWrapper(url: url)
         var data
         if let data {
             image = UIImage(data: data)
+            return nil
         } else {
-            DispatchQueue.global().async {
-                do {
-                    let fetchedData = try Data(contentsOf: url)
+            let task = URLSession.shared.dataTask(
+                with: url
+            ) { fetchedData, response, error in
+                if let fetchedData {
                     DispatchQueue.main.async {
                         self.image = UIImage(data: fetchedData)
                     }
                     data = fetchedData
-                } catch {
-                    dump(error)
                 }
             }
+            task.resume()
+            return task
         }
     }
     
-    func setImage(with endpoint: EndpointRepresentable) {
-        guard let url = endpoint.toURL() else { return }
-        @CacheWrapper(url: url)
-        var data
-        if let data {
-            image = UIImage(data: data)
-        } else {
-            DispatchQueue.global().async {
-                do {
-                    let fetchedData = try Data(contentsOf: url)
-                    DispatchQueue.main.async {
-                        self.image = UIImage(data: fetchedData)
-                    }
-                    data = fetchedData
-                } catch {
-                    dump(error)
-                }
-            }
-        }
+    func setImage(with endpoint: EndpointRepresentable) -> URLSessionTask? {
+        guard let url = endpoint.toURL() else { return nil }
+        return setImage(with: url)
     }
 }

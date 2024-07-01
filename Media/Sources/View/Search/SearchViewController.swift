@@ -96,21 +96,23 @@ final class SearchViewController: BaseViewController {
             request: SearchRequest(
                 query: searchTerm,
                 page: page
-            )
-        ) { response in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                let newResults = searchResult.results + response.results
-                searchResult = SearchResponse(
-                    page: response.page,
-                    results: newResults,
-                    totalPages: response.totalPages,
-                    totalResults: response.totalResults
-                )
+            ),
+            onNext: { response in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    let newResults = searchResult.results + response.results
+                    searchResult = SearchResponse(
+                        page: response.page,
+                        results: newResults,
+                        totalPages: response.totalPages,
+                        totalResults: response.totalResults
+                    )
+                }
+            },
+            onError: { error in
+                dump(error)
             }
-        } errorHandler: { error in
-            dump(error)
-        }
+        )
     }
 }
 

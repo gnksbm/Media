@@ -12,13 +12,18 @@ final class SimilarRepository {
     
     static func callRequest(
         request: SimilarRequest,
-        _ completionHandler: @escaping (SimilarResponse) -> Void,
-        errorHandler: @escaping (Error) -> Void
+        onNext: @escaping (SimilarResponse) -> Void,
+        onError: @escaping (Error) -> Void = { _ in },
+        onComplete: @escaping () -> Void = { }
     ) {
-        NetworkService.request(
-            endpoint: SimilarEndpoint(request: request),
-            completionHandler,
-            errorHandler: errorHandler
+        NetworkService.shared.request(
+            endpoint: SimilarEndpoint(request: request)
+        )
+        .decode(type: SimilarResponse.self)
+        .receive(
+            onNext: onNext,
+            onError: onError,
+            onComplete: onComplete
         )
     }
 }

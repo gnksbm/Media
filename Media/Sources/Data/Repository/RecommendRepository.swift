@@ -12,13 +12,18 @@ final class RecommendRepository {
     
     static func callRequest(
         request: RecommendRequest,
-        _ completionHandler: @escaping (RecommendResponse) -> Void,
-        errorHandler: @escaping (Error) -> Void
+        onNext: @escaping (RecommendResponse) -> Void,
+        onError: @escaping (Error) -> Void = { _ in },
+        onComplete: @escaping () -> Void = { }
     ) {
-        NetworkService.request(
-            endpoint: RecommendEndpoint(request: request),
-            completionHandler,
-            errorHandler: errorHandler
+        NetworkService.shared.request(
+            endpoint: RecommendEndpoint(request: request)
+        )
+        .decode(type: RecommendResponse.self)
+        .receive(
+            onNext: onNext,
+            onError: onError,
+            onComplete: onComplete
         )
     }
 }

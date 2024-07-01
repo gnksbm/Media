@@ -12,13 +12,18 @@ final class TrendingRepository {
     
     static func callRequest(
         request: TrendingRequest,
-        _ completionHandler: @escaping (TrendingResponse) -> Void,
-        errorHandler: @escaping (Error) -> Void
+        onNext: @escaping (TrendingResponse) -> Void,
+        onError: @escaping (Error) -> Void = { _ in },
+        onComplete: @escaping () -> Void = { }
     ) {
-        NetworkService.request(
-            endpoint: TrendingEndpoint(request: request),
-            completionHandler,
-            errorHandler: errorHandler
+        NetworkService.shared.request(
+            endpoint: TrendingEndpoint(request: request)
+        )
+        .decode(type: TrendingResponse.self)
+        .receive(
+            onNext: onNext,
+            onError: onError,
+            onComplete: onComplete
         )
     }
 }

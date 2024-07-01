@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseView: UICollectionReusableView {
+class BaseView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()

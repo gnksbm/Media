@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E013DF82C32AE8F00557FC0 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DF72C32AE8F00557FC0 /* DataRequest.swift */; };
+		8E013DFA2C32AF3A00557FC0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DF92C32AF3A00557FC0 /* NetworkError.swift */; };
 		8EDCB8B32C295DCE006F7851 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B22C295DCE006F7851 /* String+.swift */; };
 		8EDCB8B62C295FE9006F7851 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */; };
 		8EDCB8BC2C296246006F7851 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8BB2C296246006F7851 /* NetworkService.swift */; };
@@ -85,6 +87,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E013DF72C32AE8F00557FC0 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		8E013DF92C32AF3A00557FC0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		8EDCB8B22C295DCE006F7851 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8EDCB8BB2C296246006F7851 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -175,6 +179,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E013DF62C32AE7000557FC0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8EDCB8BB2C296246006F7851 /* NetworkService.swift */,
+				8E013DF72C32AE8F00557FC0 /* DataRequest.swift */,
+				8E013DF92C32AF3A00557FC0 /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		8EDCB8B42C295FDF006F7851 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,9 +410,9 @@
 			children = (
 				BEE6293C2C16F0C2009E1884 /* UIKitPreview.swift */,
 				BE77C1482C17076C008EADA1 /* DateFormat.swift */,
-				8EDCB8BB2C296246006F7851 /* NetworkService.swift */,
 				BEE629412C16F1FB009E1884 /* Builder.swift */,
 				BE76B3312C2ABC3200CEE3BA /* CacheWrapper.swift */,
+				8E013DF62C32AE7000557FC0 /* Network */,
 				BEE6292E2C16DD58009E1884 /* Endpoint */,
 				BEE6292D2C16D17C009E1884 /* Extension */,
 			);
@@ -550,6 +564,7 @@
 				BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */,
 				BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */,
 				BE77C1492C17076C008EADA1 /* DateFormat.swift in Sources */,
+				8E013DFA2C32AF3A00557FC0 /* NetworkError.swift in Sources */,
 				BE77C14B2C171150008EADA1 /* PaddingLabelView.swift in Sources */,
 				8EDCB8CB2C29C29B006F7851 /* PosterEndpoint.swift in Sources */,
 				BE76B3562C2D848800CEE3BA /* CreditRequest.swift in Sources */,
@@ -572,6 +587,7 @@
 				BE77C1692C174BE3008EADA1 /* UIViewController+.swift in Sources */,
 				8EDCB8C72C29A759006F7851 /* SimilarResponse.swift in Sources */,
 				8EDCB8C02C299B10006F7851 /* SearchDetailViewController.swift in Sources */,
+				8E013DF82C32AE8F00557FC0 /* DataRequest.swift in Sources */,
 				BEE629362C16DFD6009E1884 /* EndpointScheme.swift in Sources */,
 				8EDCB8CF2C29C4C5006F7851 /* RecommendResponse.swift in Sources */,
 				BE77C15C2C172C5F008EADA1 /* CreditTVOverViewCell.swift in Sources */,

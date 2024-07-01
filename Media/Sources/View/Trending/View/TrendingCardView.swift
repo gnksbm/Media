@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 final class TrendingCardView: BaseView {
+    private var task: URLSessionTask?
+    
     private let mainImageView = UIImageView().build { builder in
         builder.contentMode(.scaleAspectFill)
             .backgroundColor(.tertiarySystemFill)
@@ -98,8 +100,12 @@ final class TrendingCardView: BaseView {
         }
     }
     
+    func prepareForReuse() {
+        task?.cancel()
+    }
+    
     func configureView(data: TrendingResponse.Trending) {
-        mainImageView.setImage(with: data.imageEndpoint)
+        task = mainImageView.setImage(with: data.imageEndpoint)
         gradeLabel.text = data.grade
         titleLabel.text = data.title
         descriptionLabel.text = data.overview

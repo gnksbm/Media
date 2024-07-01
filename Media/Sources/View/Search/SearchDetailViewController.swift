@@ -57,38 +57,44 @@ final class SearchDetailViewController: BaseViewController {
         SimilarRepository.callRequest(
             request: SimilarRequest(
                 movieID: movieID
-            )
-        ) { response in
-            itemDic[.similar] = response.imageEndpoints
-            group.leave()
-        } errorHandler: { error in
-            dump(error)
-            group.leave()
-        }
+            ),
+            onNext: { response in
+                itemDic[.similar] = response.imageEndpoints
+                group.leave()
+            },
+            onError: { error in
+                dump(error)
+                group.leave()
+            }
+        )
         group.enter()
         RecommendRepository.callRequest(
-            request: RecommendRequest(
+            request: SimilarRequest(
                 movieID: movieID
-            )
-        ) { response in
-            itemDic[.recommend] = response.imageEndpoints
-            group.leave()
-        } errorHandler: { error in
-            dump(error)
-            group.leave()
-        }
+            ),
+            onNext: { response in
+                itemDic[.recommend] = response.imageEndpoints
+                group.leave()
+            },
+            onError: { error in
+                dump(error)
+                group.leave()
+            }
+        )
         group.enter()
         PosterRepository.callRequest(
             request: PosterRequest(
                 movieID: movieID
-            )
-        ) { response in
-            itemDic[.poster] = response.imageEndpoints
-            group.leave()
-        } errorHandler: { error in
-            dump(error)
-            group.leave()
-        }
+            ),
+            onNext: { response in
+                itemDic[.poster] = response.imageEndpoints
+                group.leave()
+            },
+            onError: { error in
+                dump(error)
+                group.leave()
+            }
+        )
         group.notify(queue: .main) { [weak self] in
             self?.updateSnapshot(itemDic: itemDic)
         }
@@ -99,37 +105,41 @@ final class SearchDetailViewController: BaseViewController {
         SimilarRepository.callRequest(
             request: SimilarRequest(
                 movieID: movieID
-            )
-        ) { response in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                updateSnapshot(
-                    items: response.imageEndpoints,
-                    toSection: .similar
-                )
+            ),
+            onNext: { response in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    updateSnapshot(
+                        items: response.imageEndpoints,
+                        toSection: .similar
+                    )
+                }
+            },
+            onError: { error in
+                dump(error)
             }
-        } errorHandler: { error in
-            dump(error)
-        }
+        )
     }
     
     @available(*, deprecated, renamed: "callRequest")
     private func callRecommendRequest() {
         RecommendRepository.callRequest(
-            request: RecommendRequest(
+            request: SimilarRequest(
                 movieID: movieID
-            )
-        ) { response in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                updateSnapshot(
-                    items: response.imageEndpoints,
-                    toSection: .recommend
-                )
+            ),
+            onNext: { response in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    updateSnapshot(
+                        items: response.imageEndpoints,
+                        toSection: .recommend
+                    )
+                }
+            },
+            onError: { error in
+                dump(error)
             }
-        } errorHandler: { error in
-            dump(error)
-        }
+        )
     }
     
     @available(*, deprecated, renamed: "callRequest")
@@ -137,18 +147,20 @@ final class SearchDetailViewController: BaseViewController {
         PosterRepository.callRequest(
             request: PosterRequest(
                 movieID: movieID
-            )
-        ) { response in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                updateSnapshot(
-                    items: response.imageEndpoints,
-                    toSection: .poster
-                )
+            ),
+            onNext: { response in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    updateSnapshot(
+                        items: response.imageEndpoints,
+                        toSection: .poster
+                    )
+                }
+            },
+            onError: { error in
+                dump(error)
             }
-        } errorHandler: { error in
-            dump(error)
-        }
+        )
     }
 }
 
