@@ -14,7 +14,8 @@ final class SearchRepository {
         request: SearchRequest,
         onNext: @escaping (SearchResponse) -> Void,
         onError: @escaping (Error) -> Void = { _ in },
-        onComplete: @escaping () -> Void = { }
+        onComplete: @escaping () -> Void = { },
+        onProgress: @escaping (Double) -> Void = { _ in }
     ) {
         NetworkService.shared.request(
             endpoint: SearchEndpoint(request: request)
@@ -25,5 +26,6 @@ final class SearchRepository {
             onError: onError,
             onComplete: onComplete
         )
+        .onProgress(onProgress)
     }
 }

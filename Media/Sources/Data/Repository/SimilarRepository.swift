@@ -14,7 +14,8 @@ final class SimilarRepository {
         request: SimilarRequest,
         onNext: @escaping (SimilarResponse) -> Void,
         onError: @escaping (Error) -> Void = { _ in },
-        onComplete: @escaping () -> Void = { }
+        onComplete: @escaping () -> Void = { },
+        onProgress: @escaping (Double) -> Void = { _ in }
     ) {
         NetworkService.shared.request(
             endpoint: SimilarEndpoint(request: request)
@@ -25,5 +26,6 @@ final class SimilarRepository {
             onError: onError,
             onComplete: onComplete
         )
+        .onProgress(onProgress)
     }
 }

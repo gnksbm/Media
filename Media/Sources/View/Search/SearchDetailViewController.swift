@@ -51,6 +51,7 @@ final class SearchDetailViewController: BaseViewController {
     }
     
     private func callRequest() {
+        showProgressView()
         let group = DispatchGroup()
         var itemDic = [CollectionViewSection: [ImageEndpoint]]()
         group.enter()
@@ -62,9 +63,14 @@ final class SearchDetailViewController: BaseViewController {
                 itemDic[.similar] = response.imageEndpoints
                 group.leave()
             },
-            onError: { error in
-                dump(error)
+            onError:  { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
                 group.leave()
+            },
+            onProgress: { [weak self] progress in
+                guard let self else { return }
+                appendProgress(progress: progress / 3)
             }
         )
         group.enter()
@@ -76,9 +82,14 @@ final class SearchDetailViewController: BaseViewController {
                 itemDic[.recommend] = response.imageEndpoints
                 group.leave()
             },
-            onError: { error in
-                dump(error)
+            onError:  { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
                 group.leave()
+            },
+            onProgress: { [weak self] progress in
+                guard let self else { return }
+                appendProgress(progress: progress / 3)
             }
         )
         group.enter()
@@ -90,13 +101,20 @@ final class SearchDetailViewController: BaseViewController {
                 itemDic[.poster] = response.imageEndpoints
                 group.leave()
             },
-            onError: { error in
-                dump(error)
+            onError:  { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
                 group.leave()
+            },
+            onProgress: { [weak self] progress in
+                guard let self else { return }
+                appendProgress(progress: progress / 3)
             }
         )
         group.notify(queue: .main) { [weak self] in
-            self?.updateSnapshot(itemDic: itemDic)
+            guard let self else { return }
+            updateSnapshot(itemDic: itemDic)
+            hideProgressView()
         }
     }
     
@@ -115,8 +133,9 @@ final class SearchDetailViewController: BaseViewController {
                     )
                 }
             },
-            onError: { error in
-                dump(error)
+            onError:  { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
             }
         )
     }
@@ -136,8 +155,9 @@ final class SearchDetailViewController: BaseViewController {
                     )
                 }
             },
-            onError: { error in
-                dump(error)
+            onError:  { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
             }
         )
     }
@@ -157,8 +177,9 @@ final class SearchDetailViewController: BaseViewController {
                     )
                 }
             },
-            onError: { error in
-                dump(error)
+            onError:  { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
             }
         )
     }

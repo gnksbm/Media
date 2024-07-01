@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E013DF82C32AE8F00557FC0 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DF72C32AE8F00557FC0 /* DataRequest.swift */; };
 		8E013DFA2C32AF3A00557FC0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DF92C32AF3A00557FC0 /* NetworkError.swift */; };
+		8E013DFC2C32D71C00557FC0 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E013DFB2C32D71C00557FC0 /* ToastView.swift */; };
 		8EDCB8B32C295DCE006F7851 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B22C295DCE006F7851 /* String+.swift */; };
 		8EDCB8B62C295FE9006F7851 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */; };
 		8EDCB8BC2C296246006F7851 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCB8BB2C296246006F7851 /* NetworkService.swift */; };
@@ -89,6 +90,7 @@
 /* Begin PBXFileReference section */
 		8E013DF72C32AE8F00557FC0 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		8E013DF92C32AF3A00557FC0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		8E013DFB2C32D71C00557FC0 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		8EDCB8B22C295DCE006F7851 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8EDCB8B52C295FE9006F7851 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8EDCB8BB2C296246006F7851 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				BE77C14A2C171150008EADA1 /* PaddingLabelView.swift */,
+				8E013DFB2C32D71C00557FC0 /* ToastView.swift */,
 				BE76B3242C2AAD3F00CEE3BA /* Base */,
 			);
 			path = Common;
@@ -564,6 +567,7 @@
 				BE77C1422C16FEE1008EADA1 /* TrendingCardView.swift in Sources */,
 				BEE629382C16DFE1009E1884 /* EndpointError.swift in Sources */,
 				BE77C1492C17076C008EADA1 /* DateFormat.swift in Sources */,
+				8E013DFC2C32D71C00557FC0 /* ToastView.swift in Sources */,
 				8E013DFA2C32AF3A00557FC0 /* NetworkError.swift in Sources */,
 				BE77C14B2C171150008EADA1 /* PaddingLabelView.swift in Sources */,
 				8EDCB8CB2C29C29B006F7851 /* PosterEndpoint.swift in Sources */,

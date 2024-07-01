@@ -14,7 +14,8 @@ final class RecommendRepository {
         request: RecommendRequest,
         onNext: @escaping (RecommendResponse) -> Void,
         onError: @escaping (Error) -> Void = { _ in },
-        onComplete: @escaping () -> Void = { }
+        onComplete: @escaping () -> Void = { },
+        onProgress: @escaping (Double) -> Void = { _ in }
     ) {
         NetworkService.shared.request(
             endpoint: RecommendEndpoint(request: request)
@@ -25,6 +26,7 @@ final class RecommendRepository {
             onError: onError,
             onComplete: onComplete
         )
+        .onProgress(onProgress)
     }
 }
 

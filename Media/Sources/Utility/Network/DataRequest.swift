@@ -24,6 +24,11 @@ final class AnyDataRequest<T: Decodable> {
     private var onNextEvent: ((T) -> Void)?
     private var onErrorEvent: ((Error) -> Void)?
     private var onCompleteEvent: (() -> Void)?
+    private var progressEvent: ((Double) -> Void)?
+    
+    var progress: Double {
+        Double(buffer?.count ?? 1) / Double(max(1, bufferSize))
+    }
     
     init(task: URLSessionTask?) {
         self.task = task
@@ -55,10 +60,15 @@ final class AnyDataRequest<T: Decodable> {
         return self
     }
     
+    func onProgress(_ action: @escaping (Double) -> Void) {
+        progressEvent = action
+    }
+    
     func cancel() {
         onNextEvent = nil
         onErrorEvent = nil
         onCompleteEvent = nil
+        progressEvent = nil
         task?.cancel()
     }
     
@@ -92,6 +102,7 @@ extension AnyDataRequest: DataRequest {
                 }
             }
         }
+        progressEvent?(progress)
     }
     
     func didReceive(error: Error) {

@@ -70,13 +70,15 @@ final class TrendingViewController: BaseViewController {
                     callTrendingRequest()
                 }
             },
-            onError: { error in
-                dump(error)
+            onError: { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
             }
         )
     }
     
     private func callTrendingRequest() {
+        showProgressView()
         TrendingRepository.callRequest(
             request: TrendingRequest(
                 mediaType: mediaType
@@ -87,8 +89,17 @@ final class TrendingViewController: BaseViewController {
                     dataList = response.results
                 }
             },
-            onError: { error in
-                dump(error)
+            onError: { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
+            },
+            onComplete: { [weak self] in
+                guard let self else { return }
+                hideProgressView()
+            },
+            onProgress: { [weak self] progress in
+                guard let self else { return }
+                updateProgress(progress: progress)
             }
         )
     }

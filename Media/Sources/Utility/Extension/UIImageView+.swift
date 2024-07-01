@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIImageView {
+    @discardableResult
     func setImage(with url: URL) -> URLSessionTask? {
         @CacheWrapper(url: url)
         var data
@@ -30,6 +31,7 @@ extension UIImageView {
         }
     }
     
+    @discardableResult
     func setImage(with endpoint: EndpointRepresentable) -> URLSessionTask? {
         guard let url = endpoint.toURL() else { return nil }
         return setImage(with: url)

@@ -14,7 +14,8 @@ final class TrendingRepository {
         request: TrendingRequest,
         onNext: @escaping (TrendingResponse) -> Void,
         onError: @escaping (Error) -> Void = { _ in },
-        onComplete: @escaping () -> Void = { }
+        onComplete: @escaping () -> Void = { },
+        onProgress: @escaping (Double) -> Void = { _ in }
     ) {
         NetworkService.shared.request(
             endpoint: TrendingEndpoint(request: request)
@@ -25,5 +26,6 @@ final class TrendingRepository {
             onError: onError,
             onComplete: onComplete
         )
+        .onProgress(onProgress)
     }
 }

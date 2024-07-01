@@ -14,7 +14,8 @@ final class PosterRepository {
         request: PosterRequest,
         onNext: @escaping (PosterResponse) -> Void,
         onError: @escaping (Error) -> Void = { _ in },
-        onComplete: @escaping () -> Void = { }
+        onComplete: @escaping () -> Void = { },
+        onProgress: @escaping (Double) -> Void = { _ in }
     ) {
         NetworkService.shared.request(
             endpoint: PosterEndpoint(request: request)
@@ -25,5 +26,6 @@ final class PosterRepository {
             onError: onError,
             onComplete: onComplete
         )
+        .onProgress(onProgress)
     }
 }

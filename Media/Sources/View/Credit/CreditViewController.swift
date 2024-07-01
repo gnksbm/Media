@@ -55,6 +55,7 @@ class CreditViewController: BaseViewController {
     }
     
     func callCreditRequest(data: TrendingResponse.Trending) {
+        showProgressView()
         CreditRepository.callRequest(
             request: CreditRequest(
                 mediaType: data.mediaType,
@@ -69,8 +70,17 @@ class CreditViewController: BaseViewController {
                     crewList = response.crew
                 }
             },
-            onError: { error in
-                dump(error)
+            onError:  { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
+            },
+            onComplete: { [weak self] in
+                guard let self else { return }
+                hideProgressView()
+            },
+            onProgress: { [weak self] progress in
+                guard let self else { return }
+                updateProgress(progress: progress)
             }
         )
     }

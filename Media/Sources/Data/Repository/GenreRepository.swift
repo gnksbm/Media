@@ -13,7 +13,8 @@ final class GenreRepository {
     static func callRequest(
         onNext: @escaping (GenreResponse) -> Void,
         onError: @escaping (Error) -> Void = { _ in },
-        onComplete: @escaping () -> Void = { }
+        onComplete: @escaping () -> Void = { },
+        onProgress: @escaping (Double) -> Void = { _ in }
     ) {
         NetworkService.shared.request(
             endpoint: GenreEndpoint()
@@ -24,5 +25,6 @@ final class GenreRepository {
             onError: onError,
             onComplete: onComplete
         )
+        .onProgress(onProgress)
     }
 }

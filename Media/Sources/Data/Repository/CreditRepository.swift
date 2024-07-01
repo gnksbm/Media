@@ -14,7 +14,8 @@ final class CreditRepository {
         request: CreditRequest,
         onNext: @escaping (CreditResponse) -> Void,
         onError: @escaping (Error) -> Void = { _ in },
-        onComplete: @escaping () -> Void = { }
+        onComplete: @escaping () -> Void = { },
+        onProgress: @escaping (Double) -> Void = { _ in }
     ) {
         NetworkService.shared.request(
             endpoint: CreditEndpoint(request: request)
@@ -25,5 +26,6 @@ final class CreditRepository {
             onError: onError,
             onComplete: onComplete
         )
+        .onProgress(onProgress)
     }
 }

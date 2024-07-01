@@ -92,6 +92,7 @@ final class SearchViewController: BaseViewController {
         guard let searchTerm = searchBar.text,
               searchTerm.isNotEmpty
         else { return }
+        showProgressView()
         SearchRepository.callRequest(
             request: SearchRequest(
                 query: searchTerm,
@@ -109,8 +110,17 @@ final class SearchViewController: BaseViewController {
                     )
                 }
             },
-            onError: { error in
-                dump(error)
+            onError:  { [weak self] error in
+                guard let self else { return }
+                showToast(message: "잠시후 다시 시도하세요")
+            },
+            onComplete: { [weak self] in
+                guard let self else { return }
+                hideProgressView()
+            },
+            onProgress: { [weak self] progress in
+                guard let self else { return }
+                updateProgress(progress: progress)
             }
         )
     }
